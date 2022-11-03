@@ -40,7 +40,7 @@
       let baseValue = 1000;
       let userOffset = 1000;
       let pricePerUser = 0.5;
-      let finalPrice = 1000;
+      let finalPrice1 = 1000;
 
 
       if ((customers1 > 5000) && (customers1 <= 50000)) {
