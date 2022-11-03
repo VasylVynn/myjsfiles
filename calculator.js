@@ -1,18 +1,13 @@
     const
       range = document.getElementById('range'),
       tooltip = document.getElementById('tooltip'),
-            thumb = document.getElementById('thumb'),
-
       price = document.getElementById('price'),
       
       setValue = () => {
         const
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
         newPosition = 16 - (newValue * 0.32);
-       const  thumbPosition = (range.value/1000);
         tooltip.style.left = `calc(${newValue}% + (${newPosition}px))`;
-                thumb.style.left = `calc(${thumbPosition}% - (10px))`;
-
         document.documentElement.style.setProperty("--range-progress", `calc(${newValue}% + (${newPosition}px))`);
       };
       
