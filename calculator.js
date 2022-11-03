@@ -8,7 +8,7 @@
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
         newPosition = 16 - (newValue * 0.32);
         tooltip.style.left = `calc(${newValue}% + (${newPosition}px))`;
-        document.documentElement.style.setProperty("--range-progress", `calc(${newValue}% + (${newPosition}px))`);
+        document.documentElement.style.setProperty("--range-progress-1", `calc(${newValue}% + (${newPosition}px))`);
       };
       
     document.addEventListener("DOMContentLoaded", setValue);
