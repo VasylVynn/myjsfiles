@@ -2,6 +2,8 @@
       range = document.getElementById('range'),
       tooltip = document.getElementById('tooltip'),
       price = document.getElementById('price'),
+
+      
       
       setValue = () => {
         const
