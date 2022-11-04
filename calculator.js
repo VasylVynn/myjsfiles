@@ -189,17 +189,17 @@
 
 		
     const setRange = (value) => {
-      if (range.value <= 33333.3333) {
-        $("#range-3").attr('step', 666.666667);
-        customers = Math.round(value / 666.666667 * 100)
+      if (range.value <= 333333.333) {
+        $("#range-3").attr('step', 6666.66666);
+        customers = Math.round(value / 6666.66666 * 1000)
 
-      } else if ((range.value > 33333.3333) && (range.value < 66666.6666)) {
-        $("#range-3").attr('step', 740.74074);
-                  customers =  Math.round(5000 + (value - 33333.3333) / 740.74074 * 1000)
+      } else if ((range.value > 333333.3333) && (range.value < 666666.666)) {
+        $("#range-3").attr('step', 7407.4074);
+                  customers =  Math.round(50000 + (value - 333333.333) / 7407.4074 * 10000)
 
       } else {
-        $("#range-3").attr('step', 6666.66666);
-                  customers = Math.round(50000 + (value - 66666.6666) / 6666.66666 * 10000)
+        $("#range-3").attr('step', 66666.6666);
+                  customers = Math.round(500000 + (value - 666666.666) / 66666.6666 * 100000)
 
       }
     }
@@ -208,25 +208,25 @@
 
       let baseValue = 1000;
       let userOffset = 1000;
-      let pricePerUser = 0.5;
+      let pricePerUser = 0.04;
       let finalPrice = 1000;
 
 
       if ((customers > 5000) && (customers <= 50000)) {
         baseValue = 3000;
         userOffset = 5000;
-        pricePerUser = 0.1;
+        pricePerUser = 0.008;
 
 
       }else if ((customers > 1000) && (customers <= 5000)) {
         baseValue = 1000;
         userOffset = 1000;
-        pricePerUser = 0.5;
+        pricePerUser = 0.04;
 
       }else if ((customers > 50000) && (customers <= 100000)) {
         baseValue = 7500;
         userOffset = 50000;
-        pricePerUser = 0.05;
+        pricePerUser = 0.004;
 
       } else if (customers <=1000) {
         baseValue = 1000;
