@@ -109,8 +109,8 @@
         customers = Math.round(value / 6666.66666 * 1000)
 
       } else if ((range.value > 333333.3333) && (range.value < 666666.666)) {
-        $("#range-2").attr('step', 7400.7407);
-                  customers =  Math.round(50000 + (value - 333333.333) / 7400.7407 * 10000)
+        $("#range-2").attr('step', 7407.4074);
+                  customers =  Math.round(50000 + (value - 333333.333) / 7407.4074 * 10000)
 
       } else {
         $("#range-2").attr('step', 66666.6666);
