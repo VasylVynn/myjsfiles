@@ -121,30 +121,30 @@
 
     const Calculate = () => {
 
-      let baseValue = 1000;
+      let baseValue = 0;
       let userOffset = 10000;
       let pricePerUser = 0.05;
-      let finalPrice = 1000;
+      let finalPrice = 0;
 
 
       if ((customers > 50000) && (customers <= 500000)) {
-        baseValue = 3000;
+        baseValue = 2000;
         userOffset = 50000;
         pricePerUser = 0.01;
 
 
       }else if ((customers > 10000) && (customers <= 50000)) {
-        baseValue = 1000;
+        baseValue = 0;
         userOffset = 10000;
         pricePerUser = 0.05;
 
       }else if ((customers > 500000) && (customers <= 1000000)) {
-        baseValue = 7500;
+        baseValue = 6500;
         userOffset = 500000;
         pricePerUser = 0.005;
 
       } else if (customers <=10000) {
-        baseValue = 1000;
+        baseValue = 0;
         userOffset = 0;
         pricePerUser = 0;
       }
@@ -206,30 +206,30 @@
 
     const Calculate = () => {
 
-      let baseValue = 1000;
+      let baseValue = 0;
       let userOffset = 10000;
       let pricePerUser = 0.04;
-      let finalPrice = 1000;
+      let finalPrice = 0;
 
 
       if ((customers > 50000) && (customers <= 500000)) {
-        baseValue = 3000;
+        baseValue = 1600;
         userOffset = 50000;
         pricePerUser = 0.008;
 
 
       }else if ((customers > 10000) && (customers <= 50000)) {
-        baseValue = 1000;
+        baseValue = 0;
         userOffset = 10000;
         pricePerUser = 0.04;
 
       }else if ((customers > 500000) && (customers <= 1000000)) {
-        baseValue = 7500;
+        baseValue = 5200;
         userOffset = 500000;
         pricePerUser = 0.004;
 
       } else if (customers <=10000) {
-        baseValue = 1000;
+        baseValue = 0;
         userOffset = 0;
         pricePerUser = 0;
       }
