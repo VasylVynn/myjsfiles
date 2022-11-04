@@ -207,28 +207,28 @@
     const Calculate = () => {
 
       let baseValue = 1000;
-      let userOffset = 1000;
+      let userOffset = 10000;
       let pricePerUser = 0.04;
       let finalPrice = 1000;
 
 
-      if ((customers > 5000) && (customers <= 50000)) {
+      if ((customers > 50000) && (customers <= 500000)) {
         baseValue = 3000;
-        userOffset = 5000;
+        userOffset = 50000;
         pricePerUser = 0.008;
 
 
-      }else if ((customers > 1000) && (customers <= 5000)) {
+      }else if ((customers > 10000) && (customers <= 50000)) {
         baseValue = 1000;
-        userOffset = 1000;
+        userOffset = 10000;
         pricePerUser = 0.04;
 
-      }else if ((customers > 50000) && (customers <= 100000)) {
+      }else if ((customers > 500000) && (customers <= 1000000)) {
         baseValue = 7500;
-        userOffset = 50000;
+        userOffset = 500000;
         pricePerUser = 0.004;
 
-      } else if (customers <=1000) {
+      } else if (customers <=10000) {
         baseValue = 1000;
         userOffset = 0;
         pricePerUser = 0;
