@@ -1,10 +1,4 @@
-    let estimatedCost = 1000;
 
-    estimatedCost = 1000 + $('div#calculator-1').length? finalPrice1 : 0 + $('div#calculator-2').length? finalPrice2 : 0 +$('div#calculator-3').length? finalPrice3 : 0
-
-
-    $('.estimated-cost-title').text(': $' + estimatedCost);
-    
     if($('div#calculator-1').length) {
    const
       range = document.getElementById('range-1'),
@@ -259,3 +253,11 @@
     }
 
 }
+
+    let estimatedCost = 1000;
+
+    estimatedCost = 1000 + $('div#calculator-1').length? finalPrice1 : 0 + $('div#calculator-2').length? finalPrice2 : 0 +$('div#calculator-3').length? finalPrice3 : 0
+
+
+    $('.estimated-cost-title').text(': $' + estimatedCost);
+    
