@@ -104,9 +104,9 @@
 
 		
     const setRange = (value) => {
-      if (range.value <= 333333.3333) {
+      if (range.value <= 333333.333) {
         $("#range-2").attr('step', 6666.666667);
-        customers = Math.round(value / 6666.666667 * 100)
+        customers = Math.round(value / 6666.666667 * 1000)
 
       } else if ((range.value > 333333.3333) && (range.value < 666666.6666)) {
         $("#range-2").attr('step', 7400.74074);
