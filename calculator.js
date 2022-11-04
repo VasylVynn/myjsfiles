@@ -1,3 +1,10 @@
+    let estimatedCost = 1000;
+
+    estimatedCost = 1000 + $('div#calculator-1').length? finalPrice1 : 0 + $('div#calculator-2').length? finalPrice2 : 0 +$('div#calculator-3').length? finalPrice3 : 0
+
+
+    $('.estimated-cost-title').text(': $' + estimatedCost);
+    
     if($('div#calculator-1').length) {
    const
       range = document.getElementById('range-1'),
@@ -39,7 +46,7 @@
       let baseValue = 1000;
       let userOffset = 1000;
       let pricePerUser = 0.5;
-      let finalPrice = 1000;
+      let finalPrice1 = 1000;
 
 
       if ((customers > 5000) && (customers <= 50000)) {
@@ -65,13 +72,13 @@
       }
 
 
-      finalPrice = Math.round(baseValue + (customers - userOffset) * pricePerUser);
+      finalPrice1 = Math.round(baseValue + (customers - userOffset) * pricePerUser);
 
       const numberFormatter = Intl.NumberFormat('en-US');
 
 
       tooltip.innerHTML = `<span>${customers} Customers</span>`;
-      price.innerHTML = `<span>$${finalPrice} / month</span>`;
+      price.innerHTML = `<span>$${finalPrice1} / month</span>`;
 
     };
 
@@ -124,7 +131,7 @@
       let baseValue = 0;
       let userOffset = 10000;
       let pricePerUser = 0.05;
-      let finalPrice = 0;
+      let finalPrice2 = 0;
 
 
       if ((customers > 50000) && (customers <= 500000)) {
@@ -150,13 +157,13 @@
       }
 
 
-      finalPrice = Math.round(baseValue + (customers - userOffset) * pricePerUser);
+      finalPrice2 = Math.round(baseValue + (customers - userOffset) * pricePerUser);
 
       const numberFormatter = Intl.NumberFormat('en-US');
 
 
       tooltip.innerHTML = `<span>${customers} Messages</span>`;
-      price.innerHTML = `<span>$${finalPrice} / month</span>`;
+      price.innerHTML = `<span>$${finalPrice2} / month</span>`;
 
     };
 
@@ -209,7 +216,7 @@
       let baseValue = 0;
       let userOffset = 10000;
       let pricePerUser = 0.04;
-      let finalPrice = 0;
+      let finalPrice3 = 0;
 
 
       if ((customers > 50000) && (customers <= 500000)) {
@@ -235,13 +242,13 @@
       }
 
 
-      finalPrice = Math.round(baseValue + (customers - userOffset) * pricePerUser);
+      finalPrice3 = Math.round(baseValue + (customers - userOffset) * pricePerUser);
 
       const numberFormatter = Intl.NumberFormat('en-US');
 
 
       tooltip.innerHTML = `<span>${customers} Messages</span>`;
-      price.innerHTML = `<span>$${finalPrice} / month</span>`;
+      price.innerHTML = `<span>$${finalPrice3} / month</span>`;
 
     };
 
