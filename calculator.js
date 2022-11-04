@@ -104,17 +104,17 @@
 
 		
     const setRange = (value) => {
-      if (range.value <= 33333.3333) {
-        $("#range-2").attr('step', 666.666667);
-        customers = Math.round(value / 666.666667 * 100)
+      if (range.value <= 333333.3333) {
+        $("#range-2").attr('step', 6666.666667);
+        customers = Math.round(value / 6666.666667 * 100)
 
-      } else if ((range.value > 33333.3333) && (range.value < 66666.6666)) {
-        $("#range-2").attr('step', 740.74074);
-                  customers =  Math.round(5000 + (value - 33333.3333) / 740.74074 * 1000)
+      } else if ((range.value > 333333.3333) && (range.value < 666666.6666)) {
+        $("#range-2").attr('step', 7400.74074);
+                  customers =  Math.round(50000 + (value - 333333.3333) / 7400.74074 * 10000)
 
       } else {
-        $("#range-2").attr('step', 6666.66666);
-                  customers = Math.round(50000 + (value - 66666.6666) / 6666.66666 * 10000)
+        $("#range-2").attr('step', 66666.66666);
+                  customers = Math.round(500000 + (value - 666666.6666) / 66666.66666 * 100000)
 
       }
     }
@@ -122,28 +122,28 @@
     const Calculate = () => {
 
       let baseValue = 1000;
-      let userOffset = 1000;
-      let pricePerUser = 0.5;
+      let userOffset = 10000;
+      let pricePerUser = 0.05;
       let finalPrice = 1000;
 
 
-      if ((customers > 5000) && (customers <= 50000)) {
+      if ((customers > 50000) && (customers <= 500000)) {
         baseValue = 3000;
-        userOffset = 5000;
-        pricePerUser = 0.1;
-
-
-      }else if ((customers > 1000) && (customers <= 5000)) {
-        baseValue = 1000;
-        userOffset = 1000;
-        pricePerUser = 0.5;
-
-      }else if ((customers > 50000) && (customers <= 100000)) {
-        baseValue = 7500;
         userOffset = 50000;
+        pricePerUser = 0.01;
+
+
+      }else if ((customers > 10000) && (customers <= 50000)) {
+        baseValue = 1000;
+        userOffset = 10000;
         pricePerUser = 0.05;
 
-      } else if (customers <=1000) {
+      }else if ((customers > 500000) && (customers <= 1000000)) {
+        baseValue = 7500;
+        userOffset = 500000;
+        pricePerUser = 0.005;
+
+      } else if (customers <=10000) {
         baseValue = 1000;
         userOffset = 0;
         pricePerUser = 0;
@@ -155,7 +155,7 @@
       const numberFormatter = Intl.NumberFormat('en-US');
 
 
-      tooltip.innerHTML = `<span>${customers} Customers</span>`;
+      tooltip.innerHTML = `<span>${customers} Messages</span>`;
       price.innerHTML = `<span>$${finalPrice} / month</span>`;
 
     };
