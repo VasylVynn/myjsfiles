@@ -240,7 +240,7 @@
       const numberFormatter = Intl.NumberFormat('en-US');
 
 
-      tooltip.innerHTML = `<span>${customers} Customers</span>`;
+      tooltip.innerHTML = `<span>${customers} Messages</span>`;
       price.innerHTML = `<span>$${finalPrice} / month</span>`;
 
     };
