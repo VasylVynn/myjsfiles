@@ -3,6 +3,9 @@
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	}
 
+       let estimatedCost = 1000;
+
+
 
     if($('div#calculator-1').length) {
    const
@@ -85,6 +88,8 @@
     range.oninput = () => {
       setRange(range.value);
       Calculate();
+      estimatedCost = estimatedCost +  finalPrice1;
+    $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
 
 
     }
@@ -172,6 +177,9 @@
     range.oninput = () => {
       setRange(range.value);
       Calculate();
+        estimatedCost = estimatedCost +  finalPrice2;
+    $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+
     }
 
 }
@@ -257,20 +265,9 @@
     range.oninput = () => {
       setRange(range.value);
       Calculate();
+  estimatedCost = estimatedCost +  finalPrice3;
+    $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
 
     }
 
 }
-
-$( "input[type='range']" ).oninput = () => {
-     let estimatedCost = 1000;
-
-    estimatedCost = 1000 +  finalPrice1  +  finalPrice2 +  finalPrice3 ;
-
-    console.log(estimatedCost);
-
-
-    $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost));
-    };
-
-
