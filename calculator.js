@@ -3,10 +3,57 @@
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	}
 
+
        let estimatedCost = 1000;
        let finalPrice1 = 0;
       let finalPrice2 = 0;
       let finalPrice3 = 0;
+
+
+  $(document).ready(function() {
+
+  $('.group-1').click(function() {
+    if ($('.group-1').filter(':checked').length < 1) {
+      $('#calculator-1').hide()
+      estimatedCost = estimatedCost - finalPrice1;
+    } else {
+           $('#calculator-1').show()
+                 estimatedCost += finalPrice1;
+    }
+  })
+  
+    $('.group-2').click(function() {
+    if ($('.group-2').filter(':checked').length < 1) {
+      $('#calculator-2').hide()
+            estimatedCost = estimatedCost - finalPrice2;
+
+    } else {
+           $('#calculator-2').show();
+                            estimatedCost += finalPrice2;
+
+    }
+  })
+  
+    $('.group-3').click(function() {
+    if ($('.group-3').filter(':checked').length < 1) {
+      $('#calculator-3').hide()
+            estimatedCost = estimatedCost - finalPrice3;
+
+    } else {
+           $('#calculator-3').show();
+                            estimatedCost += finalPrice3;
+
+    }
+  })
+
+  $('.custom-check').click(function() {
+    if ($('input:checkbox').filter(':checked').length < 1) {
+      return false;
+    } else {
+      return true;
+    }
+  })
+})
 
 
 
