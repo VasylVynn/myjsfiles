@@ -2,13 +2,10 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-
 let estimatedCost = 1000;
 let finalPrice1 = 0;
 let finalPrice2 = 0;
 let finalPrice3 = 0;
-
-
 
 $(document).ready(function() {
 
@@ -67,8 +64,8 @@ if ($('div#calculator-1').length) {
     setValue = () => {
       const
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
-        tooltipPos = (range.value / (range.max - range.min)) * 96 + '%',
-        newPosition = 16 - (newValue * 0.32);
+        newPosition = 16 - (newValue * 0.32),
+        tooltipPos = (range.value / (range.max - range.min)) * 97 + '%';
       tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 31px)"));
       document.documentElement.style.setProperty("--range-progress-1", `calc(${newValue}% + (${newPosition}px))`);
     };
@@ -76,8 +73,6 @@ if ($('div#calculator-1').length) {
   document.addEventListener("DOMContentLoaded", setValue);
 
   let customers = 0;
-
-
 
   const setRange = (value) => {
     if (range.value <= 33333.3333) {
@@ -153,8 +148,9 @@ if ($('div#calculator-2').length) {
     setValue = () => {
       const
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
-        newPosition = 16 - (newValue * 0.32);
-      tooltip.style.left = `calc(${newValue}% + (${newPosition}px))`;
+        newPosition = 16 - (newValue * 0.32),
+        tooltipPos = (range.value / (range.max - range.min)) * 97 + '%';
+      tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 31px)"));
       document.documentElement.style.setProperty("--range-progress-2", `calc(${newValue}% + (${newPosition}px))`);
     };
 
@@ -162,8 +158,6 @@ if ($('div#calculator-2').length) {
   range.addEventListener('input', setValue);
 
   let customers = 0;
-
-
 
   const setRange = (value) => {
     if (range.value <= 333333.333) {
@@ -237,8 +231,9 @@ if ($('div#calculator-3').length) {
     setValue = () => {
       const
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
-        newPosition = 16 - (newValue * 0.32);
-      tooltip.style.left = `calc(${newValue}% + (${newPosition}px))`;
+        newPosition = 16 - (newValue * 0.32),
+        tooltipPos = (range.value / (range.max - range.min)) * 97 + '%';
+      tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 31px)"));
       document.documentElement.style.setProperty("--range-progress-3", `calc(${newValue}% + (${newPosition}px))`);
     };
 
@@ -246,8 +241,6 @@ if ($('div#calculator-3').length) {
   range.addEventListener('input', setValue);
 
   let customers = 0;
-
-
 
   const setRange = (value) => {
     if (range.value <= 333333.333) {
