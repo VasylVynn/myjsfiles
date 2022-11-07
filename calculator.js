@@ -267,6 +267,8 @@ $( "input[type='range']" ).change(function(finalPrice1, finalPrice2, finalPrice3
 
     estimatedCost = 1000 + ($('div#calculator-1').length ? finalPrice1 : 0) + ($('div#calculator-2').length? finalPrice2 : 0) + ($('div#calculator-3').length? finalPrice3 : 0);
 
+    console.log(estimatedCost);
+
 
     $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost));
 });
