@@ -5,8 +5,8 @@
 
        let estimatedCost = 1000;
        let finalPrice1 = 0;
-           let finalPrice2 = 0;
-               let finalPrice2 = 0;
+      let finalPrice2 = 0;
+      let finalPrice3 = 0;
 
 
 
