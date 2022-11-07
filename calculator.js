@@ -19,9 +19,9 @@
   $('.group-1').click(function() {
 
         var selected = $('.group-1:checked').map(function() {
-            return $(this).attr('data-valuetwo');
+            return $(this).attr('name');
         }).get().join('<br>');
-        $('#calculator-1').html(selected);
+        $('#selected-checkmarks-1').html(selected);
   
     if ($('.group-1').filter(':checked').length < 1) {
       $('#calculator-1').hide()
@@ -37,6 +37,11 @@
   })
   
     $('.group-2').click(function() {
+      var selected = $('.group-2:checked').map(function() {
+            return $(this).attr('name');
+        }).get().join('<br>');
+        $('#selected-checkmarks-2').html(selected);
+
     if ($('.group-2').filter(':checked').length < 1) {
       $('#calculator-2').hide()
             estimatedCost = estimatedCost - finalPrice2;
@@ -53,6 +58,11 @@
   })
   
     $('.group-3').click(function() {
+      var selected = $('.group-3:checked').map(function() {
+            return $(this).attr('name');
+        }).get().join('<br>');
+        $('#selected-checkmarks-3').html(selected);
+
     if ($('.group-3').filter(':checked').length < 1) {
       $('#calculator-3').hide()
             estimatedCost = estimatedCost - finalPrice3;
