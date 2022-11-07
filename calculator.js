@@ -4,6 +4,9 @@
 	}
 
        let estimatedCost = 1000;
+       let finalPrice1 = 0;
+           let finalPrice2 = 0;
+               let finalPrice2 = 0;
 
 
 
@@ -25,7 +28,6 @@
     range.addEventListener('input', setValue);
     
     let customers = 0;
-    let finalPrice1 = 1000;
 
 
 		
@@ -114,7 +116,6 @@
     range.addEventListener('input', setValue);
     
     let customers = 0;
-    let finalPrice2 = 0;
 
 
 		
@@ -202,7 +203,6 @@
     range.addEventListener('input', setValue);
     
     let customers = 0;
-    let finalPrice3 = 0;
 
 
 		
