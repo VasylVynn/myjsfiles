@@ -17,9 +17,12 @@
 
 
   $('.group-1').click(function() {
-      $('.group-1:checked').each(function(){
-            $('#calculator-1').append(`<span>${this.value}</span>`);
-        });
+
+        var selected = $('.group-1:checked').map(function() {
+            return $(this).attr('data-valuetwo');
+        }).get().join('<br>');
+        $('#calculator-1').html(selected);
+  
     if ($('.group-1').filter(':checked').length < 1) {
       $('#calculator-1').hide()
       estimatedCost = estimatedCost - finalPrice1;
