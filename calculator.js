@@ -88,7 +88,7 @@
     range.oninput = () => {
       setRange(range.value);
       Calculate();
-      estimatedCost = estimatedCost +  finalPrice1;
+      estimatedCost = 1000 +  finalPrice1;
     $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
 
 
@@ -177,7 +177,7 @@
     range.oninput = () => {
       setRange(range.value);
       Calculate();
-        estimatedCost = estimatedCost +  finalPrice2;
+      estimatedCost = 1000 +  finalPrice1 + finalPrice2;
     $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
 
     }
@@ -265,7 +265,7 @@
     range.oninput = () => {
       setRange(range.value);
       Calculate();
-  estimatedCost = estimatedCost +  finalPrice3;
+      estimatedCost = 1000 +  finalPrice1 + finalPrice2 + finalPrice3;
     $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
 
     }
