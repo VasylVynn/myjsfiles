@@ -16,9 +16,13 @@
     if ($('.group-1').filter(':checked').length < 1) {
       $('#calculator-1').hide()
       estimatedCost = estimatedCost - finalPrice1;
+          $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+
     } else {
            $('#calculator-1').show()
                  estimatedCost += finalPrice1;
+                     $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+
     }
   })
   
@@ -26,10 +30,14 @@
     if ($('.group-2').filter(':checked').length < 1) {
       $('#calculator-2').hide()
             estimatedCost = estimatedCost - finalPrice2;
+                $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+
 
     } else {
            $('#calculator-2').show();
                             estimatedCost += finalPrice2;
+                                $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+
 
     }
   })
@@ -38,10 +46,14 @@
     if ($('.group-3').filter(':checked').length < 1) {
       $('#calculator-3').hide()
             estimatedCost = estimatedCost - finalPrice3;
+                $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+
 
     } else {
            $('#calculator-3').show();
                             estimatedCost += finalPrice3;
+                                $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+
 
     }
   })
@@ -96,7 +108,7 @@
 
     const Calculate = () => {
 
-      let baseValue = 1000;
+      let baseValue = 0;
       let userOffset = 1000;
       let pricePerUser = 0.5;
 
@@ -118,7 +130,7 @@
         pricePerUser = 0.05;
 
       } else if (customers <=1000) {
-        baseValue = 1000;
+        baseValue = 0;
         userOffset = 0;
         pricePerUser = 0;
       }
