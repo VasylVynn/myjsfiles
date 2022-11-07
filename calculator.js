@@ -10,7 +10,13 @@
       let finalPrice3 = 0;
 
 
+
+
   $(document).ready(function() {
+
+  $('.group-1:checked').each(function(){
+            $('#calculator-1').append(`<span>${this.value}</span>`);
+        });
 
   $('.group-1').click(function() {
     if ($('.group-1').filter(':checked').length < 1) {
