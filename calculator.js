@@ -262,8 +262,8 @@
 
 }
 
-$( "input[type='range']" ).change(function(finalPrice1, finalPrice2, finalPrice3) {
-   let estimatedCost = 1000;
+$( "input[type='range']" ).oninput = () => {
+     let estimatedCost = 1000;
 
     estimatedCost = 1000 +  finalPrice1  +  finalPrice2 +  finalPrice3 ;
 
@@ -271,5 +271,6 @@ $( "input[type='range']" ).change(function(finalPrice1, finalPrice2, finalPrice3
 
 
     $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost));
-});
+    };
+
 
