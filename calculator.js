@@ -19,62 +19,33 @@ $(document).ready(function() {
     $(`#${selectedcontainer}`).html(selected);
   }
 
-  $('.group-1').on('click', function() {
-
-    if (($('.group-1').filter(':checked').length < 1) && ($('.custom-check:checked').length < 1)) {
+  const GroupHandle = (groupNumber) => {
+    if (($(`.group-${groupNumber}`).filter(':checked').length < 1) && ($('.custom-check:checked').length < 1)) {
       return;
-    } else if ($('.group-1').filter(':checked').length < 1) {
-
-      $('#calculator-1').hide()
-      estimatedCost = estimatedCost - finalPrice1;
-      $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+    } else if ($(`.group-${groupNumber}`).filter(':checked').length < 1) {
+      $(`#range-${groupNumber}`).val(0).trigger('input');
+      $(`#calculator-${groupNumber}`).hide();
+      $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
     } else {
-      AddSelectedChannels('group-1', 'selected-checkmarks-1');
-      $('#calculator-1').show()
-      estimatedCost += finalPrice1;
-      $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+      AddSelectedChannels(`group-${groupNumber}`, `selected-checkmarks-${groupNumber}`);
+      $(`#calculator-${groupNumber}`).show()
+      $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
 
     }
+  }
+
+
+
+  $('.group-1').on('click', function() {
+    GroupHandle('1');
   })
 
   $('.group-2').click(function() {
-  
-
-     if (($('.group-2').filter(':checked').length < 1) && ($('.custom-check:checked').length < 1)) {
-      return;
-    } else if ($('.group-2').filter(':checked').length < 1) {
-      $('#calculator-2').hide()
-      estimatedCost = estimatedCost - finalPrice2;
-      $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
-
-
-    } else {
-          AddSelectedChannels('group-2', 'selected-checkmarks-2');
-      $('#calculator-2').show();
-      estimatedCost += finalPrice2;
-      $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
-
-
-    }
+    GroupHandle('2');
   })
 
   $('.group-3').click(function() {
-    if (($('.group-3').filter(':checked').length < 1) && ($('.custom-check:checked').length < 1)) {
-      return;
-    } else if ($('.group-3').filter(':checked').length < 1) {
-      $('#calculator-3').hide()
-      estimatedCost = estimatedCost - finalPrice3;
-      $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
-
-
-    } else {
-              AddSelectedChannels('group-3', 'selected-checkmarks-3');
-      $('#calculator-3').show();
-      estimatedCost += finalPrice3;
-      $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
-
-
-    }
+    GroupHandle('3');
   })
 
   $('.custom-check').on('click', function(e) {
@@ -96,13 +67,13 @@ if ($('div#calculator-1').length) {
     setValue = () => {
       const
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
+        tooltipPos = (range.value / (range.max - range.min)) * 96 + '%',
         newPosition = 16 - (newValue * 0.32);
-      tooltip.style.left = `calc(${newValue}% + (${newPosition}px))`;
+      tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 31px)"));
       document.documentElement.style.setProperty("--range-progress-1", `calc(${newValue}% + (${newPosition}px))`);
     };
 
   document.addEventListener("DOMContentLoaded", setValue);
-  range.addEventListener('input', setValue);
 
   let customers = 0;
 
@@ -156,19 +127,17 @@ if ($('div#calculator-1').length) {
 
     finalPrice1 = Math.round(baseValue + (customers - userOffset) * pricePerUser);
 
-    const numberFormatter = Intl.NumberFormat('en-US');
-
-
     tooltip.innerHTML = `<span>${numberWithCommas(customers)} Customers</span>`;
     price.innerHTML = `<span>$${numberWithCommas(finalPrice1)} / month</span>`;
 
   };
 
   range.oninput = () => {
+    setValue();
     setRange(range.value);
     Calculate();
-    estimatedCost = 1000 + finalPrice1;
-    $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+    estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
+    $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
 
 
   }
@@ -244,9 +213,6 @@ if ($('div#calculator-2').length) {
 
     finalPrice2 = Math.round(baseValue + (customers - userOffset) * pricePerUser);
 
-    const numberFormatter = Intl.NumberFormat('en-US');
-
-
     tooltip.innerHTML = `<span>${numberWithCommas(customers)} Messages</span>`;
     price.innerHTML = `<span>$${numberWithCommas(finalPrice2)} / month</span>`;
 
@@ -255,8 +221,8 @@ if ($('div#calculator-2').length) {
   range.oninput = () => {
     setRange(range.value);
     Calculate();
-    estimatedCost = 1000 + finalPrice1 + finalPrice2;
-    $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+    estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
+    $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
 
   }
 
@@ -331,8 +297,6 @@ if ($('div#calculator-3').length) {
 
     finalPrice3 = Math.round(baseValue + (customers - userOffset) * pricePerUser);
 
-    const numberFormatter = Intl.NumberFormat('en-US');
-
 
     tooltip.innerHTML = `<span>${numberWithCommas(customers)} Messages</span>`;
     price.innerHTML = `<span>$${numberWithCommas(finalPrice3)} / month</span>`;
@@ -343,7 +307,7 @@ if ($('div#calculator-3').length) {
     setRange(range.value);
     Calculate();
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
-    $('.estimated-cost-title').text(': $' + numberWithCommas(estimatedCost).toString());
+    $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
 
   }
 
