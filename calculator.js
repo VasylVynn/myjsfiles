@@ -66,7 +66,7 @@ if ($('div#calculator-1').length) {
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
         newPosition = 16 - (newValue * 0.32),
         tooltipPos = (range.value / (range.max - range.min)) * 99 + '%';
-      tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 31px)"));
+      tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 5px)"));
       document.documentElement.style.setProperty("--range-progress-1", `calc(${newValue}% + (${newPosition}px))`);
     };
 
@@ -149,8 +149,8 @@ if ($('div#calculator-2').length) {
       const
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
         newPosition = 16 - (newValue * 0.32),
-        tooltipPos = (range.value / (range.max - range.min)) * 97 + '%';
-      tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 31px)"));
+        tooltipPos = (range.value / (range.max - range.min)) * 99 + '%';
+      tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 5px)"));
       document.documentElement.style.setProperty("--range-progress-2", `calc(${newValue}% + (${newPosition}px))`);
     };
 
@@ -232,8 +232,8 @@ if ($('div#calculator-3').length) {
       const
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
         newPosition = 16 - (newValue * 0.32),
-        tooltipPos = (range.value / (range.max - range.min)) * 97 + '%';
-      tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 31px)"));
+        tooltipPos = (range.value / (range.max - range.min)) * 99 + '%';
+      tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 5px)"));
       document.documentElement.style.setProperty("--range-progress-3", `calc(${newValue}% + (${newPosition}px))`);
     };
 
