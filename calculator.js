@@ -65,7 +65,7 @@ if ($('div#calculator-1').length) {
       const
         newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
         newPosition = 16 - (newValue * 0.32),
-        tooltipPos = (range.value / (range.max - range.min)) * 97 + '%';
+        tooltipPos = (range.value / (range.max - range.min)) * 99 + '%';
       tooltip.setAttribute('style', "left: ".concat(tooltipPos, "; transform: translate(-").concat(tooltipPos, ", 31px)"));
       document.documentElement.style.setProperty("--range-progress-1", `calc(${newValue}% + (${newPosition}px))`);
     };
