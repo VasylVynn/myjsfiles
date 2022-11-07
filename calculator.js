@@ -16,11 +16,17 @@
 
 
 
-  $('.group-1').click(function() {
+
+
+  $('.custom-check').click(function() {
+    if ($('input:checkbox').filter(':checked').length < 1) {
+      return false;
+    } else {
+        $('.group-1').click(function() {
 
         var selected = $('.group-1:checked').map(function() {
             return $(this).attr('name');
-        }).get().join('<br>');
+        }).get().join(',');
         $('#selected-checkmarks-1').html(selected);
   
     if ($('.group-1').filter(':checked').length < 1) {
@@ -39,7 +45,7 @@
     $('.group-2').click(function() {
       var selected = $('.group-2:checked').map(function() {
             return $(this).attr('name');
-        }).get().join('<br>');
+        }).get().join(',');
         $('#selected-checkmarks-2').html(selected);
 
     if ($('.group-2').filter(':checked').length < 1) {
@@ -60,7 +66,7 @@
     $('.group-3').click(function() {
       var selected = $('.group-3:checked').map(function() {
             return $(this).attr('name');
-        }).get().join('<br>');
+        }).get().join(',');
         $('#selected-checkmarks-3').html(selected);
 
     if ($('.group-3').filter(':checked').length < 1) {
@@ -77,11 +83,6 @@
 
     }
   })
-
-  $('.custom-check').click(function() {
-    if ($('input:checkbox').filter(':checked').length < 1) {
-      return false;
-    } else {
       return true;
     }
   })
