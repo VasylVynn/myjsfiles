@@ -19,6 +19,8 @@
     range.addEventListener('input', setValue);
     
     let customers = 0;
+    let finalPrice1 = 1000;
+
 
 		
     const setRange = (value) => {
@@ -42,7 +44,6 @@
       let baseValue = 1000;
       let userOffset = 1000;
       let pricePerUser = 0.5;
-      let finalPrice1 = 1000;
 
 
       if ((customers > 5000) && (customers <= 50000)) {
@@ -105,6 +106,8 @@
     range.addEventListener('input', setValue);
     
     let customers = 0;
+    let finalPrice2 = 0;
+
 
 		
     const setRange = (value) => {
@@ -128,7 +131,6 @@
       let baseValue = 0;
       let userOffset = 10000;
       let pricePerUser = 0.05;
-      let finalPrice2 = 0;
 
 
       if ((customers > 50000) && (customers <= 500000)) {
@@ -189,6 +191,8 @@
     range.addEventListener('input', setValue);
     
     let customers = 0;
+    let finalPrice3 = 0;
+
 
 		
     const setRange = (value) => {
@@ -212,7 +216,6 @@
       let baseValue = 0;
       let userOffset = 10000;
       let pricePerUser = 0.04;
-      let finalPrice3 = 0;
 
 
       if ((customers > 50000) && (customers <= 500000)) {
