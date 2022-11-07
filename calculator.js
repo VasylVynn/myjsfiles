@@ -81,7 +81,7 @@
     range.oninput = () => {
       setRange(range.value);
       Calculate();
-      EstimatedCostCalc();
+
 
     }
 
@@ -167,7 +167,6 @@
     range.oninput = () => {
       setRange(range.value);
       Calculate();
-      EstimatedCostCalc();
     }
 
 }
@@ -252,7 +251,6 @@
     range.oninput = () => {
       setRange(range.value);
       Calculate();
-      EstimatedCostCalc();
 
     }
 
