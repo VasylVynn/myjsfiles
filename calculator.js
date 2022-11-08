@@ -76,16 +76,16 @@ if ($('div#calculator-1').length) {
 
   const setRange = (value) => {
     if (range.value <= 33333.3333) {
-      $("#range-1").attr('step', 666.666667);
+      $("#range-1").attr('step', 666.666666);
       customers = Math.round(value / 666.666667 * 100)
 
     } else if ((range.value > 33333.3333) && (range.value < 66666.6666)) {
-      $("#range-1").attr('step', 740.74074);
-      customers = Math.round(5000 + (value - 33333.3333) / 740.74074 * 1000)
+      $("#range-1").attr('step', 74.074074);
+      customers = Math.round(5000 + (value - 33333.3333) / 74.074074 * 100)
 
     } else {
-      $("#range-1").attr('step', 6666.66666);
-      customers = Math.round(50000 + (value - 66666.6666) / 6666.66666 * 10000)
+      $("#range-1").attr('step', 66.6666666);
+      customers = Math.round(50000 + (value - 66666.6666) / 66.666666 * 100)
 
     }
   }
