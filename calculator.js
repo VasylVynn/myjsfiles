@@ -159,17 +159,17 @@ if ($('div#calculator-2').length) {
   let customers = 0;
 
   const setRange = (value) => {
-    if (range.value <= 333333.333) {
+    if (range.value < 333333.333) {
       $("#range-2").attr('step', 6666.66666);
       customers = Math.round(value / 6666.66666 * 1000)
 
-    } else if ((range.value > 333333.3333) && (range.value < 666666.666)) {
-      $("#range-2").attr('step', 7407.4074);
-      customers = Math.round(50000 + (value - 333333.333) / 7407.4074 * 10000)
+    } else if ((range.value >= 333333.333) && (range.value < 666666.666)) {
+      $("#range-2").attr('step', 740.74074);
+      customers = Math.round(50000 + (value - 333333.333) / 740.74074 * 1000)
 
     } else {
-      $("#range-2").attr('step', 66666.6666);
-      customers = Math.round(500000 + (value - 666666.666) / 66666.6666 * 100000)
+      $("#range-2").attr('step', 6666.66666);
+      customers = Math.round(500000 + (value - 666666.666) / 6666.66666 * 10000)
 
     }
   }
@@ -242,17 +242,17 @@ if ($('div#calculator-3').length) {
   let customers = 0;
 
   const setRange = (value) => {
-    if (range.value <= 333333.333) {
+    if (range.value < 333333.333) {
       $("#range-3").attr('step', 6666.66666);
       customers = Math.round(value / 6666.66666 * 1000)
 
-    } else if ((range.value > 333333.3333) && (range.value < 666666.666)) {
-      $("#range-3").attr('step', 7407.4074);
-      customers = Math.round(50000 + (value - 333333.333) / 7407.4074 * 10000)
+    } else if ((range.value >= 333333.333) && (range.value < 666666.666)) {
+      $("#range-3").attr('step', 740.74074);
+      customers = Math.round(50000 + (value - 333333.333) / 740.74074 * 1000)
 
     } else {
-      $("#range-3").attr('step', 66666.6666);
-      customers = Math.round(500000 + (value - 666666.666) / 66666.6666 * 100000)
+      $("#range-3").attr('step', 6666.66666);
+      customers = Math.round(500000 + (value - 666666.666) / 6666.66666 * 10000)
 
     }
   }
