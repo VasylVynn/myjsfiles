@@ -123,7 +123,7 @@ if ($('div#calculator-1').length) {
     finalPrice1 = Math.round(baseValue + (customers - userOffset) * pricePerUser);
 
     tooltip.innerHTML = `<span>${numberWithCommas(customers)} Customers</span>`;
-    price.innerHTML = `<span>$${numberWithCommas(finalPrice1)} / month</span>`;
+    price.innerHTML = `<span>+$${numberWithCommas(finalPrice1)} / month</span>`;
 
   };
 
@@ -207,7 +207,7 @@ if ($('div#calculator-2').length) {
     finalPrice2 = Math.round(baseValue + (customers - userOffset) * pricePerUser);
 
     tooltip.innerHTML = `<span>${numberWithCommas(customers)} Messages</span>`;
-    price.innerHTML = `<span>$${numberWithCommas(finalPrice2)} / month</span>`;
+    price.innerHTML = `<span>+$${numberWithCommas(finalPrice2)} / month</span>`;
 
   };
 
@@ -291,7 +291,7 @@ if ($('div#calculator-3').length) {
 
 
     tooltip.innerHTML = `<span>${numberWithCommas(customers)} Messages</span>`;
-    price.innerHTML = `<span>$${numberWithCommas(finalPrice3)} / month</span>`;
+    price.innerHTML = `<span>+$${numberWithCommas(finalPrice3)} / month</span>`;
 
   };
 
