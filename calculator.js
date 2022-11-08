@@ -98,7 +98,7 @@ if ($('div#calculator-1').length) {
 
 
     if ((customers > 5000) && (customers <= 50000)) {
-      baseValue = 3000;
+      baseValue = 2000;
       userOffset = 5000;
       pricePerUser = 0.1;
 
@@ -109,7 +109,7 @@ if ($('div#calculator-1').length) {
       pricePerUser = 0.5;
 
     } else if ((customers > 50000) && (customers <= 100000)) {
-      baseValue = 7500;
+      baseValue = 6500;
       userOffset = 50000;
       pricePerUser = 0.05;
 
