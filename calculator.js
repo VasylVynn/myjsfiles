@@ -155,7 +155,6 @@ if ($('div#calculator-2').length) {
     };
 
   document.addEventListener("DOMContentLoaded", setValue);
-  range.addEventListener('input', setValue);
 
   let customers = 0;
 
@@ -213,6 +212,7 @@ if ($('div#calculator-2').length) {
   };
 
   range.oninput = () => {
+    setValue();
     setRange(range.value);
     Calculate();
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
@@ -238,7 +238,6 @@ if ($('div#calculator-3').length) {
     };
 
   document.addEventListener("DOMContentLoaded", setValue);
-  range.addEventListener('input', setValue);
 
   let customers = 0;
 
@@ -297,6 +296,7 @@ if ($('div#calculator-3').length) {
   };
 
   range.oninput = () => {
+    setValue();
     setRange(range.value);
     Calculate();
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
