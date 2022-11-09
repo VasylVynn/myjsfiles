@@ -56,12 +56,12 @@ $(document).ready(function() {
 })
 
   const barActive = (calcNumber, calcRange) => {
-    if (calcRange.value > 33333.3333) {
+    if (calcRange.value > (calcNumber === '1' ? 33333.3333 : 333333.333)) {
       $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid white"});
     } else {
       $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid black"});
     }
-    if (calcRange.value > 66666.6666) {
+    if (calcRange.value > (calcNumber === '1' ? 66666.6666 : 666666.666)) {
       $(`.bar-2.bar-calc-${calcNumber}`).css({"border-right": "2px solid white"});
     } else {
       $(`.bar-2.bar-calc-${calcNumber}`).css({"border-right": "2px solid black"});
