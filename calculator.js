@@ -76,10 +76,16 @@ if ($('div#calculator-1').length) {
 
   const barActive = () => {
     if (range.value > 33333.3333) {
-      $('.bar-1').css({"border-right": "2px solid white"});
+      $('.bar-1.bar-calc-1').css({"border-right": "2px solid white"});
     } else {
-      $('.bar-1').addClass('active');
+      $('.bar-1.bar-calc-1').css({"border-right": "2px solid black"});
     }
+    if (range.value > 66666.6666) {
+      $('.bar-2.bar-calc-1').css({"border-right": "2px solid white"});
+    } else {
+      $('.bar-2.bar-calc-1').css({"border-right": "2px solid black"});
+    }
+    
   }
 
   const setRange = (value) => {
