@@ -9,20 +9,6 @@ let finalPrice3 = 0;
 
 $(document).ready(function() {
 
-    const barActive = (calcNumber, calcRange) => {
-    if (calcRange > 33333.3333) {
-      $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid white"});
-    } else {
-      $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid black"});
-    }
-    if (calcRange > 66666.6666) {
-      $(`.bar-2.bar-calc-${calcNumber}`).css({"border-right": "2px solid white"});
-    } else {
-      $(`.bar-2.bar-calc-${calcNumber}`).css({"border-right": "2px solid black"});
-    }
-    
-  }
-
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`).map(function() {
       return $(this).attr('name');
@@ -69,7 +55,19 @@ $(document).ready(function() {
   })
 })
 
-
+  const barActive = (calcNumber, calcRange) => {
+    if (calcRange.value > 33333.3333) {
+      $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid white"});
+    } else {
+      $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid black"});
+    }
+    if (calcRange.value > 66666.6666) {
+      $(`.bar-2.bar-calc-${calcNumber}`).css({"border-right": "2px solid white"});
+    } else {
+      $(`.bar-2.bar-calc-${calcNumber}`).css({"border-right": "2px solid black"});
+    }
+    
+  }
 
 if ($('div#calculator-1').length) {
   const
