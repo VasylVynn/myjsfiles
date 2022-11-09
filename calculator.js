@@ -55,13 +55,13 @@ $(document).ready(function() {
   })
 })
 
-  const barActive = (calcNumber) => {
-    if (range.value > 33333.3333) {
+  const barActive = (calcNumber, calcRange) => {
+    if (rcalcRange > 33333.3333) {
       $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid white"});
     } else {
       $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid black"});
     }
-    if (range.value > 66666.6666) {
+    if (calcRange > 66666.6666) {
       $(`.bar-2.bar-calc-${calcNumber}`).css({"border-right": "2px solid white"});
     } else {
       $(`.bar-2.bar-calc-${calcNumber}`).css({"border-right": "2px solid black"});
@@ -145,7 +145,7 @@ if ($('div#calculator-1').length) {
     setValue();
     setRange(range.value);
     Calculate();
-    barActive('1');
+    barActive('1',range);
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
     $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
 
@@ -230,7 +230,7 @@ if ($('div#calculator-2').length) {
     setValue();
     setRange(range.value);
     Calculate();
-    barActive('2');
+    barActive('2',range);
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
     $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
 
@@ -315,7 +315,7 @@ if ($('div#calculator-3').length) {
     setValue();
     setRange(range.value);
     Calculate();
-    barActive('3');
+    barActive('3',range);
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
     $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
 
