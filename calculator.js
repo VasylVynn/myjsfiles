@@ -74,6 +74,14 @@ if ($('div#calculator-1').length) {
 
   let customers = 0;
 
+  const barActive = () => {
+    if (range.value > 33333.3333) {
+      $('.bar-1').css({"border-right": "2px solid white"});
+    } else {
+      $('.bar-1').addClass('active');
+    }
+  }
+
   const setRange = (value) => {
     if (range.value <= 33333.3333) {
       $("#range-1").attr('step', 666.666666);
@@ -131,6 +139,7 @@ if ($('div#calculator-1').length) {
     setValue();
     setRange(range.value);
     Calculate();
+    barActive();
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
     $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
 
