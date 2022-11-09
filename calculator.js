@@ -56,7 +56,7 @@ $(document).ready(function() {
 })
 
   const barActive = (calcNumber, calcRange) => {
-    if (rcalcRange > 33333.3333) {
+    if (calcRange > 33333.3333) {
       $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid white"});
     } else {
       $(`.bar-1.bar-calc-${calcNumber}`).css({"border-right": "2px solid black"});
