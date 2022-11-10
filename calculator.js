@@ -89,13 +89,14 @@ if ($('div#calculator-1').length) {
   let customers = 0;
 
   const setRange = (value) => {
-    if (range.value <= 33333.3333) {
-      $("#range-1").attr('step', 666.666666);
-      customers = Math.round(value / 666.666667 * 100)
+    if (range.value < 33333.33328) {
+      $("#range-1").attr('step', 833.333332);
+      customers = Math.round(1000+value / 833.333332 * 100)
 
-    } else if ((range.value > 33333.3333) && (range.value < 66666.6666)) {
+    } else if ((range.value >= 33333.33328) && (range.value < 66666.6666)) {
+
       $("#range-1").attr('step', 74.074074);
-      customers = Math.round(5000 + (value - 33333.3333) / 74.074074 * 100)
+      customers = Math.round(5000 + (value - 33333.33328) / 74.074074 * 100)
 
     } else {
       $("#range-1").attr('step', 66.6666666);
