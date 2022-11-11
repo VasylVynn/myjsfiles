@@ -10,11 +10,11 @@ let finalPrice3 = 0;
 $(document).ready(function() {
 const CheckHeight = () => { 
   
-  var maxHeight = 163;
+  var maxHeight = 26;
 
- if ($("#calculator-1").height() > maxHeight) {
-maxHeight = $("#calculator-1").height();
-$(".calculator").height(maxHeight);
+ if ($("#selected-checkmarks-1").height() > maxHeight) {
+maxHeight = $("#selected-checkmarks-1").height();
+$(".selected-channels").height(maxHeight);
  }
 };
  
