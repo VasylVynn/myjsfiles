@@ -11,6 +11,7 @@ $(document).ready(function() {
 const CheckHeight = () => { var maxHeight = 163;
 
 $(".embed-pricing-slider").each(function(){
+  console.log('as'+ $(this).height());
    if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
 });
 
