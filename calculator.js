@@ -8,14 +8,14 @@ let finalPrice2 = 0;
 let finalPrice3 = 0;
 
 $(document).ready(function() {
-
-  var maxHeight = 163;
+const CheckHeight = () => { var maxHeight = 163;
 
 $(".embed-pricing-slider").each(function(){
    if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
 });
 
-$(".calculator").height(maxHeight);
+$(".calculator").height(maxHeight);};
+ 
 
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`).map(function() {
@@ -43,14 +43,19 @@ $(".calculator").height(maxHeight);
 
   $('.group-1').on('click', function() {
     GroupHandle('1');
+    CheckHeight();
   })
 
   $('.group-2').click(function() {
     GroupHandle('2');
+        CheckHeight();
+
   })
 
   $('.group-3').click(function() {
     GroupHandle('3');
+        CheckHeight();
+
   })
 
   $('.custom-check').on('click', function(e) {
