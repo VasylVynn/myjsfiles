@@ -12,7 +12,7 @@ $(document).ready(function() {
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`).map(function() {
       return $(this).attr('name');
-    }).get().join(',');
+    }).get().join(', ');
     $(`#${selectedcontainer}`).html(selected);
   }
 
