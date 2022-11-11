@@ -8,14 +8,15 @@ let finalPrice2 = 0;
 let finalPrice3 = 0;
 
 $(document).ready(function() {
-const CheckHeight = () => { var maxHeight = 163;
+const CheckHeight = () => { 
+  
+  var maxHeight = 163;
 
-$(".embed-pricing-slider").each(function(){
-  console.log('as'+ $(this).height());
-   if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
-});
-
-$(".calculator").height(maxHeight);};
+ if ($("#calculator-1").height() > maxHeight) {
+maxHeight = ("#calculator-1").height();
+$(".calculator").height(maxHeight);
+ }
+};
  
 
   const AddSelectedChannels = (group, selectedcontainer) => {
