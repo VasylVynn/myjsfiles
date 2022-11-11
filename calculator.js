@@ -8,17 +8,7 @@ let finalPrice2 = 0;
 let finalPrice3 = 0;
 
 $(document).ready(function() {
-const CheckHeight = () => { 
-  
-//   var maxHeight = 26;
-
-//  if ($("#selected-checkmarks-1").height() > maxHeight) {
-// maxHeight = $("#selected-checkmarks-1").height();
-// $(".selected-channels").height(maxHeight);
-//  }
-};
  
-
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`).map(function() {
       return $(this).attr('name');
@@ -35,7 +25,7 @@ const CheckHeight = () => {
       $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
     } else {
       AddSelectedChannels(`group-${groupNumber}`, `selected-checkmarks-${groupNumber}`);
-      $(`#calculator-${groupNumber}`).show()
+      $(`#calculator-${groupNumber}`).css('display', 'flex');
       $('.estimated-cost-title').text('$' + numberWithCommas(estimatedCost).toString());
 
     }
@@ -45,19 +35,14 @@ const CheckHeight = () => {
 
   $('.group-1').on('click', function() {
     GroupHandle('1');
-    CheckHeight();
   })
 
   $('.group-2').click(function() {
     GroupHandle('2');
-        CheckHeight();
-
   })
 
   $('.group-3').click(function() {
     GroupHandle('3');
-        CheckHeight();
-
   })
 
   $('.custom-check').on('click', function(e) {
