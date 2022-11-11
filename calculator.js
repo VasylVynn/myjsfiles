@@ -9,6 +9,14 @@ let finalPrice3 = 0;
 
 $(document).ready(function() {
 
+  var maxHeight = 163;
+
+$(".embed-pricing-slider").each(function(){
+   if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
+});
+
+$(".calculator").height(maxHeight);
+
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`).map(function() {
       return $(this).attr('name');
