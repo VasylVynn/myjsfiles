@@ -13,7 +13,7 @@ const CheckHeight = () => {
   var maxHeight = 163;
 
  if ($("#calculator-1").height() > maxHeight) {
-maxHeight = ("#calculator-1").height();
+maxHeight = $("#calculator-1").height();
 $(".calculator").height(maxHeight);
  }
 };
