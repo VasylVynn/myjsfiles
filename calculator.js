@@ -19,14 +19,9 @@ $(document).ready(function () {
   };
 
   const ShowCalcPrice = () => {
-    console.log($(".calculator:visible").length);
     if ($(".calculator:visible").length <= 1) {
-      console.log("hidden");
-
       $(".price").css({ visibility: "hidden" });
     } else {
-      console.log("visible");
-
       $(".price").css({ visibility: "visible" });
     }
   };
