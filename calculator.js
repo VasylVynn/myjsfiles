@@ -206,16 +206,16 @@ if ($("div#calculator-2").length) {
   let customers = 0;
 
   const setRange = (value) => {
-    if (range.value < 333333.333) {
-      $("#range-2").attr("step", 6666.66666);
-      customers = Math.round((value / 6666.66666) * 1000);
-    } else if (range.value >= 333333.333 && range.value < 666666.666) {
-      $("#range-2").attr("step", 740.74074);
-      customers = Math.round(50000 + ((value - 333333.333) / 740.74074) * 1000);
+    if (range.value < 330000) {
+      $("#range-2").attr("step", 8250);
+      customers = Math.round(10000 + (value / 8250) * 1000);
+    } else if (range.value >= 330000 && range.value < 660000) {
+      $("#range-2").attr("step", 733.333333);
+      customers = Math.round(50000 + ((value - 330000) / 733.333333) * 1000);
     } else {
-      $("#range-2").attr("step", 6666.66666);
+      $("#range-2").attr("step", 6600);
       customers = Math.round(
-        500000 + ((value - 666666.666) / 6666.66666) * 10000
+        500000 + ((value - 660000) / 6600) * 10000
       );
     }
   };
@@ -292,16 +292,16 @@ if ($("div#calculator-3").length) {
   let customers = 0;
 
   const setRange = (value) => {
-    if (range.value < 333333.333) {
-      $("#range-3").attr("step", 6666.66666);
-      customers = Math.round((value / 6666.66666) * 1000);
-    } else if (range.value >= 333333.333 && range.value < 666666.666) {
-      $("#range-3").attr("step", 740.74074);
-      customers = Math.round(50000 + ((value - 333333.333) / 740.74074) * 1000);
+    if (range.value < 330000) {
+      $("#range-2").attr("step", 8250);
+      customers = Math.round(10000 + (value / 8250) * 1000);
+    } else if (range.value >= 330000 && range.value < 660000) {
+      $("#range-2").attr("step", 733.333333);
+      customers = Math.round(50000 + ((value - 330000) / 733.333333) * 1000);
     } else {
-      $("#range-3").attr("step", 6666.66666);
+      $("#range-2").attr("step", 6600);
       customers = Math.round(
-        500000 + ((value - 666666.666) / 6666.66666) * 10000
+        500000 + ((value - 660000) / 6600) * 10000
       );
     }
   };
