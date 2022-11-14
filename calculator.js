@@ -20,9 +20,9 @@ $(document).ready(function () {
 
   const ShowCalcPrice = () => {
     if ($(".calculator:visible").length <= 1) {
-      $(".price").css({ visibility: "hidden" });
+      $(".price-container").css({ display: "none" });
     } else {
-      $(".price").css({ visibility: "visible" });
+      $(".price-container").css({ display: "block" });
     }
   };
 
