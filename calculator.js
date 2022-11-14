@@ -84,7 +84,7 @@ const barActive = (calcNumber, calcRange) => {
       "border-right": "2px solid black",
     });
   }
-  if (calcRange.value > (calcNumber === "1" ? 66666.6666 : 666666.666)) {
+  if (calcRange.value > (calcNumber === "1" ?  67599 : 686666)) {
     $(`.bar-2.bar-calc-${calcNumber}`).css({
       "border-right": "2px solid white",
     });
