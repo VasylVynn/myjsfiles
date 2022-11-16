@@ -36,7 +36,6 @@ $(document).ready(function () {
   labelPosition();
 
   const GroupHandle = (groupNumber) => {
-      setTimeout(labelPosition(), 200);
 
     if (
       $(`.group-${groupNumber}`).filter(":checked").length < 1 &&
@@ -61,6 +60,7 @@ $(document).ready(function () {
       );
       ShowCalcPrice();
     }
+    setTimeout(labelPosition(), 400);
   };
 
   $(".group-1").on("click", function () {
