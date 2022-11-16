@@ -27,7 +27,7 @@ $(document).ready(function () {
   };
 
   const labelPosition = () => { 
-     if ($("div#calculator-1").width()<330){
+     if ($("div#calculator-1").width()<340){
         $(".label1").css({"transform":"translate(-100%,0px)"});
         $(".label2").css({"transform":"translate(-100%,0px)"});
      } else return;
