@@ -36,7 +36,8 @@ $(document).ready(function () {
   labelPosition();
 
   const GroupHandle = (groupNumber) => {
-      labelPosition();
+      setTimeout(labelPosition(), 200);
+
     if (
       $(`.group-${groupNumber}`).filter(":checked").length < 1 &&
       $(".custom-check:checked").length < 1
