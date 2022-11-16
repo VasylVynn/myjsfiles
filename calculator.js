@@ -26,7 +26,17 @@ $(document).ready(function () {
     }} else return;    
   };
 
+  const labelPosition = () => { 
+     if ($("div#calculator-1").width()<330){
+        $(".label1").css({"transform":"translate(-100%,0px)"});
+        $(".label2").css({"transform":"translate(-100%,0px)"});
+     } else return;
+  };
+
+  labelPosition();
+
   const GroupHandle = (groupNumber) => {
+      labelPosition();
     if (
       $(`.group-${groupNumber}`).filter(":checked").length < 1 &&
       $(".custom-check:checked").length < 1
