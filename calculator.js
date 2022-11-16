@@ -19,11 +19,11 @@ $(document).ready(function () {
   };
 
   const ShowCalcPrice = () => {
-    if ($(".calculator:visible").length <= 1) {
+    if ($( window ).width()>991) {if ($(".calculator:visible").length <= 1) {
       $(".price-container").css({ display: "none" });
     } else {
       $(".price-container").css({ display: "block" });
-    }
+    }} else return;    
   };
 
   const GroupHandle = (groupNumber) => {
