@@ -82,6 +82,7 @@ $(document).ready(function () {
       this.checked = true;
       return false;
     } else {
+      $(this).closest('label').toggleClass("active");
       return true;
     }
   });
