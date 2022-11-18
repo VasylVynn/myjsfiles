@@ -38,7 +38,7 @@ $(document).ready(function () {
   labelPosition();
 
   $(".tooltip-question").on("click", function (e) {
-    $(this).closest('div').find('.tooltip-text').toggleClass("expanded");
+    $(this).next('.tooltip-text').toggleClass("expanded");
   });
 
   const GroupHandle = (groupNumber) => {
