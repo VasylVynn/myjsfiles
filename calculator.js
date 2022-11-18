@@ -19,30 +19,34 @@ $(document).ready(function () {
   };
 
   const ShowCalcPrice = () => {
-    if ($( window ).width()>991) {if ($(".calculator:visible").length <= 1) {
-      $(".price-container").css({ display: "none" });
-    } else {
-      $(".price-container").css({ display: "block" });
-    }} else return;    
+    if ($(window).width() > 991) {
+      if ($(".calculator:visible").length <= 1) {
+        $(".price-container").css({ display: "none" });
+      } else {
+        $(".price-container").css({ display: "block" });
+      }
+    } else return;
   };
 
-  const labelPosition = () => { 
-     if ($("div#calculator-1").width()<340){
-        $(".label1").css({"transform":"translate(-100%,0px)"});
-        $(".label2").css({"transform":"translate(-100%,0px)"});
-     } else {
-        $(".label1").css({"transform":"translate(-50%,0px)"});
-        $(".label2").css({"transform":"translate(-50%,0px)"});};
+  const labelPosition = () => {
+    if ($("div#calculator-1").width() < 340) {
+      $(".label1").css({ transform: "translate(-100%,0px)" });
+      $(".label2").css({ transform: "translate(-100%,0px)" });
+    } else {
+      $(".label1").css({ transform: "translate(-50%,0px)" });
+      $(".label2").css({ transform: "translate(-50%,0px)" });
+    }
   };
 
   labelPosition();
 
   $(".tooltip-question").on("click", function (e) {
-    $(this).next('.tooltip-text').fadeToggle("slow", "linear");
+    if ($(window).width() < 992) {
+      $(this).next(".tooltip-text").fadeToggle("slow", "linear");
+    } else return;
   });
 
   const GroupHandle = (groupNumber) => {
-
     if (
       $(`.group-${groupNumber}`).filter(":checked").length < 1 &&
       $(".custom-check:checked").length < 1
@@ -86,7 +90,7 @@ $(document).ready(function () {
       this.checked = true;
       return false;
     } else {
-      $(this).closest('label').toggleClass("active");
+      $(this).closest("label").toggleClass("active");
       return true;
     }
   });
@@ -102,7 +106,7 @@ const barActive = (calcNumber, calcRange) => {
       "border-right": "2px solid black",
     });
   }
-  if (calcRange.value > (calcNumber === "1" ?  69533 : 686666)) {
+  if (calcRange.value > (calcNumber === "1" ? 69533 : 686666)) {
     $(`.bar-2.bar-calc-${calcNumber}`).css({
       "border-right": "2px solid white",
     });
@@ -232,9 +236,7 @@ if ($("div#calculator-2").length) {
       customers = Math.round(50000 + ((value - 330000) / 733.333333) * 1000);
     } else {
       $("#range-2").attr("step", 6600);
-      customers = Math.round(
-        500000 + ((value - 660000) / 6600) * 10000
-      );
+      customers = Math.round(500000 + ((value - 660000) / 6600) * 10000);
     }
   };
 
@@ -318,9 +320,7 @@ if ($("div#calculator-3").length) {
       customers = Math.round(50000 + ((value - 330000) / 733.333333) * 1000);
     } else {
       $("#range-3").attr("step", 6600);
-      customers = Math.round(
-        500000 + ((value - 660000) / 6600) * 10000
-      );
+      customers = Math.round(500000 + ((value - 660000) / 6600) * 10000);
     }
   };
 
