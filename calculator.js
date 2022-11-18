@@ -37,6 +37,10 @@ $(document).ready(function () {
 
   labelPosition();
 
+  $(".tooltip-question").on("click", function (e) {
+    $(this).closest('.tooltip-text').toggleClass("expanded");
+  });
+
   const GroupHandle = (groupNumber) => {
 
     if (
