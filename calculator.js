@@ -188,6 +188,7 @@ if ($("div#calculator-1").length) {
       finalPrice1
     )}<span> / month</span>`;
   };
+  console.log('range', range.value);
 
   range.oninput = () => {
     setValue();
