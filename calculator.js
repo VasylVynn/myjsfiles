@@ -205,7 +205,6 @@ if ($("div#calculator-1").length) {
   };
 
   const StickToValue = () => {
-    console.log("mouseup");
     if (customers >= 4800 && customers <= 6200) {
       range.value = 33333.33328;
       HandleInput();
