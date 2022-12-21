@@ -214,9 +214,12 @@ if ($("div#calculator-1").length) {
       HandleInput();
     }
   };
-  range.addEventListener("touchend", StickToValue());
 
   range.onmouseup = () => {
+    StickToValue();
+  };
+  
+   range.ontouchend = () => {
     StickToValue();
   };
 }
