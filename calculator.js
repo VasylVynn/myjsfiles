@@ -199,6 +199,22 @@ if ($("div#calculator-1").length) {
       "$" + numberWithCommas(estimatedCost).toString()
     );
   };
+  range.onmouseup = () => {
+    console.log('mouseup')
+    if (customers>=4800 && customers<=5200){
+      range.value = 5000;
+      setValue();
+      setRange(range.value);
+      Calculate();
+      barActive("1", range);
+      estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
+      $(".estimated-cost-title").text(
+        "$" + numberWithCommas(estimatedCost).toString()
+      );
+          console.log('calculated')
+
+    }
+  }
 }
 
 if ($("div#calculator-2").length) {
