@@ -189,8 +189,9 @@ if ($("div#calculator-1").length) {
     )}<span> / month</span>`;
   };
 
-  range.oninput = () => {
-    setValue();
+
+  const HandleInput = () => {
+ setValue();
     setRange(range.value);
     Calculate();
     barActive("1", range);
@@ -198,22 +199,21 @@ if ($("div#calculator-1").length) {
     $(".estimated-cost-title").text(
       "$" + numberWithCommas(estimatedCost).toString()
     );
+
+  }
+
+  range.oninput = () => {
+   HandleInput();
   };
 
   const TouchMove = () => {
 console.log('mouseup')
     if (customers>=4800 && customers<=6200){
       range.value = 33333.33328;
-      setValue();
-      setRange(range.value);
-      Calculate();
-      barActive("1", range);
-      estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
-      $(".estimated-cost-title").text(
-        "$" + numberWithCommas(estimatedCost).toString()
-      );
-          console.log('calculated')
-
+      HandleInput();
+    } else if (customers>=49100 && customers<=51200){
+      range.value = 66666.6666;
+      HandleInput();
     }
 
   }
