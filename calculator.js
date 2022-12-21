@@ -199,8 +199,9 @@ if ($("div#calculator-1").length) {
       "$" + numberWithCommas(estimatedCost).toString()
     );
   };
-  range.onmouseup = () => {
-    console.log('mouseup')
+
+  const TouchMove = () => {
+console.log('mouseup')
     if (customers>=4800 && customers<=5200){
       range.value = 33333.33328;
       setValue();
@@ -214,6 +215,11 @@ if ($("div#calculator-1").length) {
           console.log('calculated')
 
     }
+
+  }
+
+  range.onmouseup = () => {
+    TouchMove();
   }
 }
 
