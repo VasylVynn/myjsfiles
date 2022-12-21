@@ -217,7 +217,7 @@ console.log('mouseup')
     }
 
   }
-  range.addEventListener("touchend", () => TouchMove());
+  range.addEventListener("touchend",TouchMove());
 
   range.onmouseup = () => {
     TouchMove();
