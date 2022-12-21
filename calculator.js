@@ -189,9 +189,8 @@ if ($("div#calculator-1").length) {
     )}<span> / month</span>`;
   };
 
-
   const HandleInput = () => {
- setValue();
+    setValue();
     setRange(range.value);
     Calculate();
     barActive("1", range);
@@ -199,29 +198,27 @@ if ($("div#calculator-1").length) {
     $(".estimated-cost-title").text(
       "$" + numberWithCommas(estimatedCost).toString()
     );
-
-  }
-
-  range.oninput = () => {
-   HandleInput();
   };
 
-  const TouchMove = () => {
-console.log('mouseup')
-    if (customers>=4800 && customers<=6200){
+  range.oninput = () => {
+    HandleInput();
+  };
+
+  const StickToValue = () => {
+    console.log("mouseup");
+    if (customers >= 4800 && customers <= 6200) {
       range.value = 33333.33328;
       HandleInput();
-    } else if (customers>=49100 && customers<=51200){
+    } else if (customers >= 49100 && customers <= 51200) {
       range.value = 66666.6666;
       HandleInput();
     }
-
-  }
-  range.addEventListener("touchend",TouchMove());
+  };
+  range.addEventListener("touchend", StickToValue());
 
   range.onmouseup = () => {
-    TouchMove();
-  }
+    StickToValue();
+  };
 }
 
 if ($("div#calculator-2").length) {
@@ -296,7 +293,7 @@ if ($("div#calculator-2").length) {
     )}<span> / month</span>`;
   };
 
-  range.oninput = () => {
+  const HandleInput = () => {
     setValue();
     setRange(range.value);
     Calculate();
@@ -305,6 +302,26 @@ if ($("div#calculator-2").length) {
     $(".estimated-cost-title").text(
       "$" + numberWithCommas(estimatedCost).toString()
     );
+  }
+
+  range.oninput = () => {
+    HandleInput();
+  };
+
+    const StickToValue = () => {
+    console.log("mouseup");
+    if (customers >= 4800 && customers <= 6200) {
+      range.value = 33333.33328;
+      HandleInput();
+    } else if (customers >= 49100 && customers <= 51200) {
+      range.value = 66666.6666;
+      HandleInput();
+    }
+  };
+  range.addEventListener("touchend", StickToValue());
+
+  range.onmouseup = () => {
+    StickToValue();
   };
 }
 
