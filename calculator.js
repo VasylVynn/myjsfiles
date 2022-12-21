@@ -218,8 +218,8 @@ if ($("div#calculator-1").length) {
   range.onmouseup = () => {
     StickToValue();
   };
-  
-   range.ontouchend = () => {
+
+  range.ontouchend = () => {
     StickToValue();
   };
 }
@@ -248,18 +248,18 @@ if ($("div#calculator-2").length) {
 
   document.addEventListener("DOMContentLoaded", setValue);
 
-  let customers = 0;
+  let messages = 0;
 
   const setRange = (value) => {
     if (range.value < 330000) {
       $("#range-2").attr("step", 8250);
-      customers = Math.round(10000 + (value / 8250) * 1000);
+      messages = Math.round(10000 + (value / 8250) * 1000);
     } else if (range.value >= 330000 && range.value < 660000) {
       $("#range-2").attr("step", 733.333333);
-      customers = Math.round(50000 + ((value - 330000) / 733.333333) * 1000);
+      messages = Math.round(50000 + ((value - 330000) / 733.333333) * 1000);
     } else {
       $("#range-2").attr("step", 6600);
-      customers = Math.round(500000 + ((value - 660000) / 6600) * 10000);
+      messages = Math.round(500000 + ((value - 660000) / 6600) * 10000);
     }
   };
 
@@ -268,29 +268,29 @@ if ($("div#calculator-2").length) {
     let userOffset = 10000;
     let pricePerUser = 0.05;
 
-    if (customers > 50000 && customers <= 500000) {
+    if (messages > 50000 && messages <= 500000) {
       baseValue = 2000;
       userOffset = 50000;
       pricePerUser = 0.01;
-    } else if (customers > 10000 && customers <= 50000) {
+    } else if (messages > 10000 && messages <= 50000) {
       baseValue = 0;
       userOffset = 10000;
       pricePerUser = 0.05;
-    } else if (customers > 500000 && customers <= 1000000) {
+    } else if (messages > 500000 && messages <= 1000000) {
       baseValue = 6500;
       userOffset = 500000;
       pricePerUser = 0.005;
-    } else if (customers <= 10000) {
+    } else if (messages <= 10000) {
       baseValue = 0;
       userOffset = 0;
       pricePerUser = 0;
     }
 
     finalPrice2 = Math.round(
-      baseValue + (customers - userOffset) * pricePerUser
+      baseValue + (messages - userOffset) * pricePerUser
     );
 
-    tooltip.innerHTML = `<span>${numberWithCommas(customers)} Messages</span>`;
+    tooltip.innerHTML = `<span>${numberWithCommas(messages)} Messages</span>`;
     price.innerHTML = `+ $${numberWithCommas(
       finalPrice2
     )}<span> / month</span>`;
@@ -305,23 +305,24 @@ if ($("div#calculator-2").length) {
     $(".estimated-cost-title").text(
       "$" + numberWithCommas(estimatedCost).toString()
     );
-  }
+  };
 
   range.oninput = () => {
     HandleInput();
   };
 
-    const StickToValue = () => {
-    console.log("mouseup");
-    if (customers >= 4800 && customers <= 6200) {
-      range.value = 33333.33328;
+  const StickToValue = () => {
+    if (messages >= 49000 && messages <= 56000) {
+      range.value = 330000;
       HandleInput();
-    } else if (customers >= 49100 && customers <= 51200) {
-      range.value = 66666.6666;
+    } else if (messages >= 491000 && messages <= 530000) {
+      range.value = 660000;
       HandleInput();
     }
   };
-  range.addEventListener("touchend", StickToValue());
+  range.ontouchend = () => {
+    StickToValue();
+  };
 
   range.onmouseup = () => {
     StickToValue();
@@ -352,18 +353,18 @@ if ($("div#calculator-3").length) {
 
   document.addEventListener("DOMContentLoaded", setValue);
 
-  let customers = 0;
+  let messages = 0;
 
   const setRange = (value) => {
     if (range.value < 330000) {
       $("#range-3").attr("step", 8250);
-      customers = Math.round(10000 + (value / 8250) * 1000);
+      messages = Math.round(10000 + (value / 8250) * 1000);
     } else if (range.value >= 330000 && range.value < 660000) {
       $("#range-3").attr("step", 733.333333);
-      customers = Math.round(50000 + ((value - 330000) / 733.333333) * 1000);
+      messages = Math.round(50000 + ((value - 330000) / 733.333333) * 1000);
     } else {
       $("#range-3").attr("step", 6600);
-      customers = Math.round(500000 + ((value - 660000) / 6600) * 10000);
+      messages = Math.round(500000 + ((value - 660000) / 6600) * 10000);
     }
   };
 
@@ -372,35 +373,35 @@ if ($("div#calculator-3").length) {
     let userOffset = 10000;
     let pricePerUser = 0.04;
 
-    if (customers > 50000 && customers <= 500000) {
+    if (messages > 50000 && messages <= 500000) {
       baseValue = 1600;
       userOffset = 50000;
       pricePerUser = 0.008;
-    } else if (customers > 10000 && customers <= 50000) {
+    } else if (messages > 10000 && messages <= 50000) {
       baseValue = 0;
       userOffset = 10000;
       pricePerUser = 0.04;
-    } else if (customers > 500000 && customers <= 1000000) {
+    } else if (messages > 500000 && messages <= 1000000) {
       baseValue = 5200;
       userOffset = 500000;
       pricePerUser = 0.004;
-    } else if (customers <= 10000) {
+    } else if (messages <= 10000) {
       baseValue = 0;
       userOffset = 0;
       pricePerUser = 0;
     }
 
     finalPrice3 = Math.round(
-      baseValue + (customers - userOffset) * pricePerUser
+      baseValue + (messages - userOffset) * pricePerUser
     );
 
-    tooltip.innerHTML = `<span>${numberWithCommas(customers)} Messages</span>`;
+    tooltip.innerHTML = `<span>${numberWithCommas(messages)} Messages</span>`;
     price.innerHTML = `+ $${numberWithCommas(
       finalPrice3
     )}<span> / month</span>`;
   };
 
-  range.oninput = () => {
+  const HandleInput = () => {
     setValue();
     setRange(range.value);
     Calculate();
@@ -409,5 +410,26 @@ if ($("div#calculator-3").length) {
     $(".estimated-cost-title").text(
       "$" + numberWithCommas(estimatedCost).toString()
     );
+  };
+
+  range.oninput = () => {
+    HandleInput();
+  };
+
+  const StickToValue = () => {
+    if (messages >= 49000 && messages <= 56000) {
+      range.value = 330000;
+      HandleInput();
+    } else if (messages >= 491000 && messages <= 530000) {
+      range.value = 660000;
+      HandleInput();
+    }
+  };
+  range.ontouchend = () => {
+    StickToValue();
+  };
+
+  range.onmouseup = () => {
+    StickToValue();
   };
 }
