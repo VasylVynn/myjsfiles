@@ -202,7 +202,7 @@ if ($("div#calculator-1").length) {
 
   const TouchMove = () => {
 console.log('mouseup')
-    if (customers>=4800 && customers<=5200){
+    if (customers>=4800 && customers<=6200){
       range.value = 33333.33328;
       setValue();
       setRange(range.value);
@@ -217,7 +217,7 @@ console.log('mouseup')
     }
 
   }
-  range.setAttribute("ontouchend", "TouchMove()");
+  range.addEventListener("touchend", () => TouchMove());
 
   range.onmouseup = () => {
     TouchMove();
