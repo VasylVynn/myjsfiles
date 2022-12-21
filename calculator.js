@@ -200,10 +200,6 @@ if ($("div#calculator-1").length) {
     );
   };
 
-  const OnAlerta = () => {
-    alert("Please contact us for a custom quote");
-  }
-
   const TouchMove = () => {
 console.log('mouseup')
     if (customers>=4800 && customers<=5200){
@@ -221,6 +217,7 @@ console.log('mouseup')
     }
 
   }
+  range.setAttribute("ontouchend", "TouchMove()");
 
   range.onmouseup = () => {
     TouchMove();
