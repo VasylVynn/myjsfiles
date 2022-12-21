@@ -188,7 +188,6 @@ if ($("div#calculator-1").length) {
       finalPrice1
     )}<span> / month</span>`;
   };
-  console.log('range', range.value);
 
   range.oninput = () => {
     setValue();
@@ -203,7 +202,7 @@ if ($("div#calculator-1").length) {
   range.onmouseup = () => {
     console.log('mouseup')
     if (customers>=4800 && customers<=5200){
-      range.value = 5000;
+      range.value = 33333.33328;
       setValue();
       setRange(range.value);
       Calculate();
