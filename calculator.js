@@ -205,15 +205,15 @@ if ($("div#calculator-1").length) {
   };
 
   const StickToValue = () => {
-    console.log($(window).width())
-    if($(window).width() > 700){
-    if (customers >= 4800 && customers <= 6200) {
-      range.value = 33333.33328;
-      HandleInput();
-    } else if (customers >= 49100 && customers <= 51200) {
-      range.value = 66666.6666;
-      HandleInput();
-    }} else {
+    if ($(window).width() > 700) {
+      if (customers >= 4800 && customers <= 6200) {
+        range.value = 33333.33328;
+        HandleInput();
+      } else if (customers >= 49100 && customers <= 51200) {
+        range.value = 66666.6666;
+        HandleInput();
+      }
+    } else {
       if (customers >= 4000 && customers <= 10000) {
         range.value = 33333.33328;
         HandleInput();
@@ -321,12 +321,22 @@ if ($("div#calculator-2").length) {
   };
 
   const StickToValue = () => {
-    if (messages >= 49000 && messages <= 56000) {
-      range.value = 330000;
-      HandleInput();
-    } else if (messages >= 491000 && messages <= 530000) {
-      range.value = 660000;
-      HandleInput();
+    if ($(window).width() > 700) {
+      if (messages >= 49000 && messages <= 56000) {
+        range.value = 330000;
+        HandleInput();
+      } else if (messages >= 491000 && messages <= 530000) {
+        range.value = 660000;
+        HandleInput();
+      }
+    } else {
+      if (messages >= 45000 && messages <= 79000) {
+        range.value = 330000;
+        HandleInput();
+      } else if (messages >= 485000 && messages <= 570000) {
+        range.value = 660000;
+        HandleInput();
+      }
     }
   };
   range.ontouchend = () => {
@@ -426,12 +436,22 @@ if ($("div#calculator-3").length) {
   };
 
   const StickToValue = () => {
-    if (messages >= 49000 && messages <= 56000) {
-      range.value = 330000;
-      HandleInput();
-    } else if (messages >= 491000 && messages <= 530000) {
-      range.value = 660000;
-      HandleInput();
+    if ($(window).width() > 700) {
+      if (messages >= 49000 && messages <= 56000) {
+        range.value = 330000;
+        HandleInput();
+      } else if (messages >= 491000 && messages <= 530000) {
+        range.value = 660000;
+        HandleInput();
+      }
+    } else {
+      if (messages >= 45000 && messages <= 79000) {
+        range.value = 330000;
+        HandleInput();
+      } else if (messages >= 485000 && messages <= 570000) {
+        range.value = 660000;
+        HandleInput();
+      }
     }
   };
   range.ontouchend = () => {
