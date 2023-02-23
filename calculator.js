@@ -205,12 +205,22 @@ if ($("div#calculator-1").length) {
   };
 
   const StickToValue = () => {
+    console.log($(window).width())
+    if($(window).width() > 700){
     if (customers >= 4800 && customers <= 6200) {
       range.value = 33333.33328;
       HandleInput();
     } else if (customers >= 49100 && customers <= 51200) {
       range.value = 66666.6666;
       HandleInput();
+    }} else {
+      if (customers >= 4000 && customers <= 10000) {
+        range.value = 33333.33328;
+        HandleInput();
+      } else if (customers >= 46000 && customers <= 58000) {
+        range.value = 66666.6666;
+        HandleInput();
+      }
     }
   };
 
