@@ -249,16 +249,14 @@ if ($("div#calculator-1").length) {
   let searchParams = new URLSearchParams(window.location.search)
     if (searchParams.has('customers')){
       let reqCustomers = parseInt(searchParams.get('customers'));
-      console.log('req'+reqCustomers)
       if (reqCustomers > 1000 && reqCustomers < 5000){
         range.value = (reqCustomers - 1000)/100*833.333332;
-        console.log(range.value)
       } else if (reqCustomers>=5000 && reqCustomers<50000){
-        $("#range-1").attr("step", 74.074074);
+        range.setAttribute("step", 74.074074);
         range.value = ((reqCustomers - 5000)/100*74.074074)+33333.33328;
-        console.log('calculated '+(((reqCustomers - 5000)/100*74.074074)+33333.33328))
-        console.log(range.value)
-
+      } else {
+        range.setAttribute("step", 66.6666666);
+        range.value = ((reqCustomers - 50000)/100*66.6666666)+66666.6666;
       }
        HandleInput();
     }
@@ -377,6 +375,21 @@ if ($("div#calculator-2").length) {
   range.onmouseup = () => {
     StickToValue();
   };
+
+  let searchParams = new URLSearchParams(window.location.search)
+  if (searchParams.has('messages')){
+    let reqMessages = parseInt(searchParams.get('messages'));
+    if (reqMessages > 10000 && reqMessages < 50000){
+      range.value = (reqMessages - 10000)/1000*8250;
+    } else if (reqMessages>=50000 && reqMessages<500000){
+      range.setAttribute("step", 733.333333);
+      range.value = ((reqMessages - 50000)/1000*733.333333)+330000;
+    } else {
+      range.setAttribute("step", 6600);
+      range.value = ((reqMessages - 500000)/1000*6600)+660000;
+    }
+     HandleInput();
+  }
 }
 
 if ($("div#calculator-3").length) {
@@ -492,6 +505,21 @@ if ($("div#calculator-3").length) {
   range.onmouseup = () => {
     StickToValue();
   };
+
+  let searchParams = new URLSearchParams(window.location.search)
+  if (searchParams.has('messages')){
+    let reqMessages = parseInt(searchParams.get('messages'));
+    if (reqMessages > 10000 && reqMessages < 50000){
+      range.value = (reqMessages - 10000)/1000*8250;
+    } else if (reqMessages>=50000 && reqMessages<500000){
+      range.setAttribute("step", 733.333333);
+      range.value = ((reqMessages - 50000)/1000*733.333333)+330000;
+    } else {
+      range.setAttribute("step", 6600);
+      range.value = ((reqMessages - 500000)/1000*6600)+660000;
+    }
+     HandleInput();
+  }
 }
 
 
