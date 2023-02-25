@@ -96,6 +96,15 @@ $(document).ready(function () {
       return true;
     }
   });
+
+  $('.business-pricing-section').ready(function(){
+    let searchParams = new URLSearchParams(window.location.search)
+    if (searchParams.has('channels')){
+      let params = searchParams.get('channels').replace(/%20/g, " ").split(",");
+       params.forEach(item => $( `.custom-check[name='${item}']` ).click()
+       )
+    }
+  })
 });
 
 
@@ -193,8 +202,7 @@ if ($("div#calculator-1").length) {
     )}<span> / month</span>`;
   };
 
-  const HandleInput1 = (newRange) => {
-    newRange && (range.value = newRange);
+  const HandleInput = () => {
     setValue();
     setRange(range.value);
     Calculate();
@@ -207,25 +215,25 @@ if ($("div#calculator-1").length) {
   };
 
   range.oninput = () => {
-    HandleInput1();
+    HandleInput();
   };
 
   const StickToValue = () => {
     if ($(window).width() > 700) {
       if (customers >= 4800 && customers <= 6200) {
         range.value = 33333.33328;
-        HandleInput1();
+        HandleInput();
       } else if (customers >= 49100 && customers <= 51200) {
         range.value = 66666.6666;
-        HandleInput1();
+        HandleInput();
       }
     } else {
       if (customers >= 4000 && customers <= 10000) {
         range.value = 33333.33328;
-        HandleInput1();
+        HandleInput();
       } else if (customers >= 46000 && customers <= 58000) {
         range.value = 66666.6666;
-        HandleInput1();
+        HandleInput();
       }
     }
   };
@@ -237,6 +245,14 @@ if ($("div#calculator-1").length) {
   range.ontouchend = () => {
     StickToValue();
   };
+
+  let searchParams = new URLSearchParams(window.location.search)
+    if (searchParams.has('customers')){
+      let params = searchParams.get('customers');
+       console.log(params);
+       range.value(15000);
+       HandleInput();
+    }
 }
 
 if ($("div#calculator-2").length) {
@@ -469,12 +485,4 @@ if ($("div#calculator-3").length) {
   };
 }
 
-$('.business-pricing-section').ready(function(){
-  let searchParams = new URLSearchParams(window.location.search)
-  if (searchParams.has('channels')){
-    let params = searchParams.get('channels').replace(/%20/g, " ").split(",");
-     params.forEach(item => $( `.custom-check[name='${item}']` ).click()
-     )
-  }
 
-})
