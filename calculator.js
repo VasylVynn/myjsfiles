@@ -98,15 +98,7 @@ $(document).ready(function () {
   });
 });
 
-$('.business-pricing-section').ready(function(){
-  let searchParams = new URLSearchParams(window.location.search)
-  if (searchParams.has('channels')){
-    let params = searchParams.get('channels');
-    console.log(params);
-    $( ".custom-check[name='Webhook']" ).click()
-  }
 
-})
 
 const barActive = (calcNumber, calcRange) => {
   if (calcRange.value > (calcNumber === "1" ? 33333.3333 : 333333.333)) {
@@ -201,11 +193,13 @@ if ($("div#calculator-1").length) {
     )}<span> / month</span>`;
   };
 
-  const HandleInput = () => {
+  const HandleInput1 = (newRange) => {
+    newRange && (range.value = newRange);
     setValue();
     setRange(range.value);
     Calculate();
     barActive("1", range);
+    console.log('Yep');
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
     $(".estimated-cost-title").text(
       "$" + numberWithCommas(estimatedCost).toString()
@@ -213,25 +207,25 @@ if ($("div#calculator-1").length) {
   };
 
   range.oninput = () => {
-    HandleInput();
+    HandleInput1();
   };
 
   const StickToValue = () => {
     if ($(window).width() > 700) {
       if (customers >= 4800 && customers <= 6200) {
         range.value = 33333.33328;
-        HandleInput();
+        HandleInput1();
       } else if (customers >= 49100 && customers <= 51200) {
         range.value = 66666.6666;
-        HandleInput();
+        HandleInput1();
       }
     } else {
       if (customers >= 4000 && customers <= 10000) {
         range.value = 33333.33328;
-        HandleInput();
+        HandleInput1();
       } else if (customers >= 46000 && customers <= 58000) {
         range.value = 66666.6666;
-        HandleInput();
+        HandleInput1();
       }
     }
   };
@@ -474,3 +468,14 @@ if ($("div#calculator-3").length) {
     StickToValue();
   };
 }
+
+$('.business-pricing-section').ready(function(){
+  let searchParams = new URLSearchParams(window.location.search)
+  if (searchParams.has('channels')){
+    let params = searchParams.get('channels');
+    console.log(params);
+    $( ".custom-check[name='Webhook']" ).click()
+    HandleInput1(32600);
+  }
+
+})
