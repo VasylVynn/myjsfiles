@@ -205,6 +205,7 @@ if ($("div#calculator-1").length) {
   const HandleInput = () => {
     setValue();
     setRange(range.value);
+    console.log('as'+ range.value);
     Calculate();
     barActive("1", range);
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
