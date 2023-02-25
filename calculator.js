@@ -386,7 +386,7 @@ if ($("div#calculator-2").length) {
       range.value = ((reqMessages - 50000)/1000*733.333333)+330000;
     } else {
       range.setAttribute("step", 6600);
-      range.value = ((reqMessages - 500000)/1000*6600)+660000;
+      range.value = ((reqMessages - 500000)/10000*6600)+660000;
     }
      HandleInput();
   }
@@ -506,8 +506,10 @@ if ($("div#calculator-3").length) {
     StickToValue();
   };
 
-  let searchParams = new URLSearchParams(window.location.search)
+console.log($(`.group-3`).filter(":checked"))
   if (!$(`.group-3`).filter(":checked").length < 1){
+    let searchParams = new URLSearchParams(window.location.search)
+
   if (searchParams.has('messages2')){
     let reqMessages = parseInt(searchParams.get('messages2'));
     if (reqMessages > 10000 && reqMessages < 50000){
@@ -517,7 +519,7 @@ if ($("div#calculator-3").length) {
       range.value = ((reqMessages - 50000)/1000*733.333333)+330000;
     } else {
       range.setAttribute("step", 6600);
-      range.value = ((reqMessages - 500000)/1000*6600)+660000;
+      range.value = ((reqMessages - 500000)/10000*6600)+660000;
     }
      HandleInput();
   }}
