@@ -249,6 +249,7 @@ if ($("div#calculator-1").length) {
   let searchParams = new URLSearchParams(window.location.search)
     if (searchParams.has('customers')){
       let reqCustomers = parseInt(searchParams.get('customers'));
+      console.log('req'+reqCustomers)
       if (reqCustomers > 1000 && reqCustomers < 5000){
         range.value = (reqCustomers - 1000)/100*833.333332;
         console.log(range.value)
