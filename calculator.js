@@ -507,6 +507,7 @@ if ($("div#calculator-3").length) {
   };
 
   let searchParams = new URLSearchParams(window.location.search)
+  if (!$(`.group-3`).filter(":checked").length < 1){
   if (searchParams.has('messages2')){
     let reqMessages = parseInt(searchParams.get('messages2'));
     if (reqMessages > 10000 && reqMessages < 50000){
@@ -519,7 +520,7 @@ if ($("div#calculator-3").length) {
       range.value = ((reqMessages - 500000)/1000*6600)+660000;
     }
      HandleInput();
-  }
+  }}
 }
 
 
