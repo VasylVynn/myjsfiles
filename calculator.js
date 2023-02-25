@@ -260,7 +260,6 @@ if ($("div#calculator-1").length) {
         console.log('jq' + $("#range-1").val())
 
       }
-       HandleInput();
     }
 }
 
