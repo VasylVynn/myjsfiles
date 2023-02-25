@@ -207,7 +207,6 @@ if ($("div#calculator-1").length) {
     setRange(range.value);
     Calculate();
     barActive("1", range);
-    console.log('Yep');
     estimatedCost = 1000 + finalPrice1 + finalPrice2 + finalPrice3;
     $(".estimated-cost-title").text(
       "$" + numberWithCommas(estimatedCost).toString()
@@ -248,9 +247,15 @@ if ($("div#calculator-1").length) {
 
   let searchParams = new URLSearchParams(window.location.search)
     if (searchParams.has('customers')){
-      let params = searchParams.get('customers');
-       console.log(params);
-       range.value(15000);
+      let reqCustomers = parseInt(searchParams.get('customers'));
+      if (customers< 5000){
+        range.value = (reqCustomers - 1000)/100*833.333332;
+        console.log(range.value)
+      } else if (customers>=5000 && customers<50000){
+        range.value = (reqCustomers - 5000)/100*74.074074;
+        console.log(range.value)
+
+      }
        HandleInput();
     }
 }
