@@ -507,7 +507,7 @@ if ($("div#calculator-3").length) {
   };
 
 console.log($(`.group-3`).filter(":checked"))
-  if (!$(`.group-3`).filter(":checked").length > 0){
+  if ($(`.group-3:checked`).length > 0){
     let searchParams = new URLSearchParams(window.location.search)
 
   if (searchParams.has('messages2')){
