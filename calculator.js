@@ -102,7 +102,7 @@ $(document).ready(function () {
       params.forEach((item) => $(`.custom-check[name='${item}']`).click());
     }
   });
-});
+
 
 const barActive = (calcNumber, calcRange) => {
   if (calcRange.value > (calcNumber === "1" ? 33333.3333 : 333333.333)) {
@@ -521,3 +521,4 @@ if ($("div#calculator-3").length) {
     }
   }
 }
+});
