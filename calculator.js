@@ -12,6 +12,7 @@ $('.business-pricing-section').ready(function(){
   if (searchParams.has('channels')){
     let params = searchParams.get('channels');
     console.log(params);
+    $( ".custom-check[name='Webhook']" ).click()
   }
 
 })
