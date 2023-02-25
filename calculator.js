@@ -7,6 +7,15 @@ let finalPrice1 = 0;
 let finalPrice2 = 0;
 let finalPrice3 = 0;
 
+$('.business-pricing-section').ready(function(){
+  let searchParams = new URLSearchParams(window.location.search)
+  if (searchParams.has('channels')){
+    let params = searchParams.get('channels');
+    console.log(params);
+  }
+
+})
+
 $(document).ready(function () {
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`)
