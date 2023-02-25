@@ -472,10 +472,9 @@ if ($("div#calculator-3").length) {
 $('.business-pricing-section').ready(function(){
   let searchParams = new URLSearchParams(window.location.search)
   if (searchParams.has('channels')){
-    let params = searchParams.get('channels');
-    console.log(params);
-    $( ".custom-check[name='Webhook']" ).click()
-    HandleInput1(32600);
+    let params = searchParams.get('channels').replace(/%20/g, " ").split(",");
+     params.forEach(item => $( `.custom-check[name='${item}']` ).click()
+     )
   }
 
 })
