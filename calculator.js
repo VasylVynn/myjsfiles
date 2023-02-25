@@ -377,8 +377,8 @@ if ($("div#calculator-2").length) {
   };
 
   let searchParams = new URLSearchParams(window.location.search)
-  if (searchParams.has('messages')){
-    let reqMessages = parseInt(searchParams.get('messages'));
+  if (searchParams.has('messages1')){
+    let reqMessages = parseInt(searchParams.get('messages1'));
     if (reqMessages > 10000 && reqMessages < 50000){
       range.value = (reqMessages - 10000)/1000*8250;
     } else if (reqMessages>=50000 && reqMessages<500000){
@@ -507,8 +507,8 @@ if ($("div#calculator-3").length) {
   };
 
   let searchParams = new URLSearchParams(window.location.search)
-  if (searchParams.has('messages')){
-    let reqMessages = parseInt(searchParams.get('messages'));
+  if (searchParams.has('messages2')){
+    let reqMessages = parseInt(searchParams.get('messages2'));
     if (reqMessages > 10000 && reqMessages < 50000){
       range.value = (reqMessages - 10000)/1000*8250;
     } else if (reqMessages>=50000 && reqMessages<500000){
