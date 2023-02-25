@@ -254,9 +254,10 @@ if ($("div#calculator-1").length) {
         range.value = (reqCustomers - 1000)/100*833.333332;
         console.log(range.value)
       } else if (reqCustomers>=5000 && reqCustomers<50000){
-        range.value = ((reqCustomers - 5000)/100*74.074074)+33333.33328;
+        $("#range-1").val(((reqCustomers - 5000)/100*74.074074)+33333.33328);
         console.log('calculated '+(((reqCustomers - 5000)/100*74.074074)+33333.33328))
         console.log(range.value)
+        console.log('jq' + $("#range-1").val())
 
       }
        HandleInput();
