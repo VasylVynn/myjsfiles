@@ -262,7 +262,7 @@ $(document).ready(function () {
     }
   }
 
-  const setMessagesFromParams = (calcNumber, inputTrigger) => {
+  const setMessagesFromParams = (calcNumber) => {
     const calcDiv = $(`div#calculator-${calcNumber}`);
 
     if (!calcDiv.is(":visible")) {
@@ -294,8 +294,6 @@ $(document).ready(function () {
     const range = calcDiv.find("input[type=range]");
     range.attr("step", step);
     range.val(value);
-
-    inputTrigger;
   };
 
   if ($("div#calculator-2").length) {
@@ -414,7 +412,8 @@ $(document).ready(function () {
     const triggerInput = HandleInput();
 
     $(".business-pricing-section").ready(function () {
-      setMessagesFromParams(2, triggerInput);
+      setMessagesFromParams(2);
+      HandleInput();
     });
   }
 
@@ -532,11 +531,9 @@ $(document).ready(function () {
       StickToValue();
     };
 
-    const triggerInput = HandleInput();
-
-
     $(".business-pricing-section").ready(function () {
-      setMessagesFromParams(3, triggerInput);
+      setMessagesFromParams(3);
+      HandleInput();
     });
   }
 });
