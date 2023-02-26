@@ -262,6 +262,26 @@ $(document).ready(function () {
     }
   }
 
+  const stickToValueMessages = () => {
+    const isWideScreen = $(window).width() > 700;
+    const isInRange = (min, max) => messages >= min && messages <= max;
+  
+    if (isWideScreen) {
+      if (isInRange(49000, 56000)) {
+        range.value = 330000;
+      } else if (isInRange(491000, 530000)) {
+        range.value = 660000;
+      }
+    } else {
+      if (isInRange(45000, 79000)) {
+        range.value = 330000;
+      } else if (isInRange(485000, 570000)) {
+        range.value = 660000;
+      }
+    }
+  };
+  
+
   const setMessagesFromParams = (calcNumber) => {
     const calcDiv = $(`div#calculator-${calcNumber}`);
 
@@ -382,34 +402,16 @@ $(document).ready(function () {
     range.oninput = () => {
       HandleInput();
     };
-
-    const StickToValue = () => {
-      if ($(window).width() > 700) {
-        if (messages >= 49000 && messages <= 56000) {
-          range.value = 330000;
-          HandleInput();
-        } else if (messages >= 491000 && messages <= 530000) {
-          range.value = 660000;
-          HandleInput();
-        }
-      } else {
-        if (messages >= 45000 && messages <= 79000) {
-          range.value = 330000;
-          HandleInput();
-        } else if (messages >= 485000 && messages <= 570000) {
-          range.value = 660000;
-          HandleInput();
-        }
-      }
-    };
+ 
     range.ontouchend = () => {
-      StickToValue();
+      stickToValueMessages();
+      HandleInput();
     };
 
     range.onmouseup = () => {
-      StickToValue();
+      stickToValueMessages();
+      HandleInput();
     };
-    const triggerInput = HandleInput();
 
     $(".business-pricing-section").ready(function () {
       setMessagesFromParams(2);
@@ -504,31 +506,14 @@ $(document).ready(function () {
       HandleInput();
     };
 
-    const StickToValue = () => {
-      if ($(window).width() > 700) {
-        if (messages >= 49000 && messages <= 56000) {
-          range.value = 330000;
-          HandleInput();
-        } else if (messages >= 491000 && messages <= 530000) {
-          range.value = 660000;
-          HandleInput();
-        }
-      } else {
-        if (messages >= 45000 && messages <= 79000) {
-          range.value = 330000;
-          HandleInput();
-        } else if (messages >= 485000 && messages <= 570000) {
-          range.value = 660000;
-          HandleInput();
-        }
-      }
-    };
     range.ontouchend = () => {
-      StickToValue();
+      stickToValueMessages();
+      HandleInput();
     };
 
     range.onmouseup = () => {
-      StickToValue();
+      stickToValueMessages();
+      HandleInput();
     };
 
     $(".business-pricing-section").ready(function () {
