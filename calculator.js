@@ -501,7 +501,9 @@ if ($("div#calculator-3").length) {
     StickToValue();
   };
 
-  if ($(`.group-3:checked`).length > 0) {
+  console.log($("div#calculator-3"),is(':visible'));
+
+  if ($("div#calculator-3"),is(':visible')) {
     let searchParams = new URLSearchParams(window.location.search);
     console.log($(`.group-3:checked`).length);
     console.log('as');
