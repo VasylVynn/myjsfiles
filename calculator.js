@@ -262,7 +262,7 @@ $(document).ready(function () {
     }
   }
 
-  const stickToValueMessages = (messages) => {
+  const stickToValueMessages = (messages, range) => {
     const isWideScreen = $(window).width() > 700;
     const isInRange = (min, max) => messages >= min && messages <= max;
   
@@ -404,12 +404,12 @@ $(document).ready(function () {
     };
  
     range.ontouchend = () => {
-      stickToValueMessages(messages);
+      stickToValueMessages(messages,range);
       HandleInput();
     };
 
     range.onmouseup = () => {
-      stickToValueMessages(messages);
+      stickToValueMessages(messages,range);
       HandleInput();
     };
 
@@ -507,12 +507,12 @@ $(document).ready(function () {
     };
 
     range.ontouchend = () => {
-      stickToValueMessages(messages);
+      stickToValueMessages(messages,range);
       HandleInput();
     };
 
     range.onmouseup = () => {
-      stickToValueMessages(messages);
+      stickToValueMessages(messages,range);
       HandleInput();
     };
 
