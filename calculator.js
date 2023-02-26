@@ -262,7 +262,7 @@ $(document).ready(function () {
     }
   }
 
-  const setMessagesFromParams = (calcNumber) => {
+  const setMessagesFromParams = (calcNumber, inputTrigger) => {
     const calcDiv = $(`div#calculator-${calcNumber}`);
 
     if (!calcDiv.is(":visible")) {
@@ -295,7 +295,7 @@ $(document).ready(function () {
     range.attr("step", step);
     range.val(value);
 
-    HandleInput();
+    inputTrigger();
   };
 
   if ($("div#calculator-2").length) {
@@ -413,7 +413,7 @@ $(document).ready(function () {
     };
 
     $(".business-pricing-section").ready(function () {
-      setMessagesFromParams(3);
+      setMessagesFromParams(3, HandleInput());
     });
   }
 
@@ -532,7 +532,7 @@ $(document).ready(function () {
     };
 
     $(".business-pricing-section").ready(function () {
-      setMessagesFromParams(3);
+      setMessagesFromParams(3, HandleInput());
     });
   }
 });
