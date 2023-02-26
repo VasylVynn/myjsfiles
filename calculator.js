@@ -207,7 +207,7 @@ $(document).ready(function () {
     };
 
     const HandleInput = () => {
-      setValue();
+      setValue(range,tooltip,1);
       setRange(range.value);
       Calculate();
       barActive("1", range);
@@ -375,7 +375,7 @@ $(document).ready(function () {
     };
 
     const HandleInput = () => {
-      setValue();
+      setValue(range,tooltip,2);
       setRange(range.value);
       Calculate();
       barActive("2", range);
@@ -461,7 +461,7 @@ $(document).ready(function () {
     };
 
     const HandleInput = () => {
-      setValue();
+      setValue(range,tooltip,3);
       setRange(range.value);
       Calculate();
       barActive("3", range);
