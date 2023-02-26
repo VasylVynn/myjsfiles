@@ -502,7 +502,7 @@ if ($("div#calculator-3").length) {
   };
 
   console.log($("div#calculator-3").is(':visible'));
-
+  $(".business-pricing-section").ready(function () {
   if ($("div#calculator-3").is(':visible')) {
     let searchParams = new URLSearchParams(window.location.search);
     console.log($(`.group-3:checked`).length);
@@ -521,6 +521,6 @@ if ($("div#calculator-3").length) {
       }
       HandleInput();
     }
-  }
+  }});
 }
 });
