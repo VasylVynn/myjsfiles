@@ -295,7 +295,7 @@ $(document).ready(function () {
     range.attr("step", step);
     range.val(value);
 
-    inputTrigger();
+    inputTrigger;
   };
 
   if ($("div#calculator-2").length) {
