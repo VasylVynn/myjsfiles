@@ -411,9 +411,10 @@ $(document).ready(function () {
     range.onmouseup = () => {
       StickToValue();
     };
+    const triggerInput = HandleInput();
 
     $(".business-pricing-section").ready(function () {
-      setMessagesFromParams(3, HandleInput());
+      setMessagesFromParams(2, triggerInput);
     });
   }
 
@@ -531,8 +532,11 @@ $(document).ready(function () {
       StickToValue();
     };
 
+    const triggerInput = HandleInput();
+
+
     $(".business-pricing-section").ready(function () {
-      setMessagesFromParams(3, HandleInput());
+      setMessagesFromParams(3, triggerInput);
     });
   }
 });
