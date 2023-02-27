@@ -114,6 +114,7 @@ $(document).ready(function () {
 
     const searchParams = new URLSearchParams(window.location.search);
     searchParams.set('channels', queryString)
+    window.location.search = searchParams;
 
   }
 
