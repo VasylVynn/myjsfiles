@@ -8,8 +8,7 @@ let finalPrice2 = 0;
 let finalPrice3 = 0;
 
 $(document).ready(function () {
-  let searchParams = new URLSearchParams(window.location.search);
-  searchParams.append('topic', 'webdev')
+
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`)
       .map(function () {
@@ -111,9 +110,11 @@ $(document).ready(function () {
         selectedValues.push(checkbox.name);
       }
     });
-    var queryString = 'channels=' + selectedValues.join(',');
-    var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + queryString;
-    window.history.pushState({path:newUrl},'',newUrl);
+    var queryString =  selectedValues.join(',');
+
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set('channels', queryString)
+
   }
 
   checkboxes.forEach(function(checkbox){
