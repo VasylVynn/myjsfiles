@@ -335,24 +335,9 @@ $(document).ready(function () {
       return;
     }
 
-    const reqMessages = parseInt(searchParams.get(messagesParam));
-
-    let step = 8250;
-    let value = 0;
-
-    if (reqMessages >= 10000 && reqMessages < 50000) {
-      value = ((reqMessages - 10000) / 1000) * step;
-    } else if (reqMessages >= 50000 && reqMessages < 500000) {
-      step = 733.333333;
-      value = ((reqMessages - 50000) / 1000) * step + 330000;
-    } else {
-      step = 6600;
-      value = ((reqMessages - 500000) / 10000) * step + 660000;
-    }
-
     const range = calcDiv.find("input[type=range]");
-    range.attr("step", step);
-    range.val(value);
+   
+    range.val(searchParams.get(messagesParam));
   };
 
   if ($("div#calculator-2").length) {
@@ -410,16 +395,7 @@ $(document).ready(function () {
       )}<span> / month</span>`;
     };
 
-    function updateUrlParams(key,value) {
-   
-      if ('URLSearchParams' in window) {
-        var searchParams = new URLSearchParams(window.location.search)
-        searchParams.set(key, value);
-        var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
-        history.pushState(null, '', newRelativePathQuery);
-    }
-  
-    }
+ 
 
     const HandleInput = () => {
       setValue(range,tooltip,2);
@@ -430,7 +406,6 @@ $(document).ready(function () {
       $(".estimated-cost-title").text(
         "$" + numberWithCommas(estimatedCost).toString()
       );
-      updateUrlParams('customers',range.value)
     };
 
     range.oninput = () => {
@@ -440,11 +415,15 @@ $(document).ready(function () {
     range.ontouchend = () => {
       stickToValueMessages(messages,range);
       HandleInput();
+      updateUrlParams('mesages-1',range.value)
+
     };
 
     range.onmouseup = () => {
       stickToValueMessages(messages,range);
       HandleInput();
+      updateUrlParams('messages-1',range.value)
+
     };
 
     $(".business-pricing-section").ready(function () {
@@ -526,11 +505,13 @@ $(document).ready(function () {
     range.ontouchend = () => {
       stickToValueMessages(messages,range);
       HandleInput();
+      updateUrlParams('mesages-2',range.value)
     };
 
     range.onmouseup = () => {
       stickToValueMessages(messages,range);
       HandleInput();
+      updateUrlParams('mesages-2',range.value)
     };
 
     $(".business-pricing-section").ready(function () {
