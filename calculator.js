@@ -9,7 +9,7 @@ let finalPrice3 = 0;
 
 $(document).ready(function () {
   let searchParams = new URLSearchParams(window.location.search);
-console.log(searchParams)
+  searchParams.append('topic', 'webdev')
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`)
       .map(function () {
