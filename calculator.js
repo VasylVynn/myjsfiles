@@ -95,7 +95,12 @@ $(document).ready(function () {
     }
   });
 
-  const checkboxes = document.getElementsByClassName("custom-check");
+
+
+
+
+  $(".business-pricing-section").ready(function () {
+    const checkboxes = document.getElementsByClassName("custom-check");
 
   function updateUrlParams() {
     var selectedValues = [];
@@ -104,7 +109,7 @@ $(document).ready(function () {
         selectedValues.push(checkbox.name);
       }
     });
-    var queryString = 'checkboxValues=' + selectedValues.join(',');
+    var queryString = 'channels=' + selectedValues.join(',');
     var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + queryString;
     window.history.pushState({path:newUrl},'',newUrl);
   }
@@ -114,8 +119,7 @@ $(document).ready(function () {
       updateUrlParams();
     })
   })
-
-
+  });
 
   $(".business-pricing-section").ready(function () {
     let searchParams = new URLSearchParams(window.location.search);
@@ -124,6 +128,9 @@ $(document).ready(function () {
       params.forEach((item) => $(`.custom-check[name='${item}']`).click());
     }
   });
+
+
+  
 
   const barActive = (calcNumber, calcRange) => {
     if (calcRange.value > (calcNumber === "1" ? 33333.3333 : 333333.333)) {
