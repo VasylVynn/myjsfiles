@@ -95,6 +95,28 @@ $(document).ready(function () {
     }
   });
 
+  const checkboxes = $(".custom-check");
+
+  function updateUrlParams() {
+    var selectedValues = [];
+    checkboxes.forEach(function(checkbox) {
+      if (checkbox.checked) {
+        selectedValues.push(checkbox.value);
+      }
+    });
+    var queryString = 'checkboxValues=' + selectedValues.join(',');
+    var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + queryString;
+    window.history.pushState({path:newUrl},'',newUrl);
+  }
+
+  checkboxes.forEach(function(checkbox){
+    checkbox.addEventListener('change', function(){
+      updateUrlParams();
+    })
+  })
+
+
+
   $(".business-pricing-section").ready(function () {
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("channels")) {
