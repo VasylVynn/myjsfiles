@@ -415,14 +415,14 @@ $(document).ready(function () {
     range.ontouchend = () => {
       stickToValueMessages(messages,range);
       HandleInput();
-      updateUrlParams('mesages-1',range.value)
+      updateUrlParams('mesages1',range.value)
 
     };
 
     range.onmouseup = () => {
       stickToValueMessages(messages,range);
       HandleInput();
-      updateUrlParams('messages-1',range.value)
+      updateUrlParams('messages1',range.value)
 
     };
 
@@ -505,13 +505,13 @@ $(document).ready(function () {
     range.ontouchend = () => {
       stickToValueMessages(messages,range);
       HandleInput();
-      updateUrlParams('mesages-2',range.value)
+      updateUrlParams('mesages2',range.value)
     };
 
     range.onmouseup = () => {
       stickToValueMessages(messages,range);
       HandleInput();
-      updateUrlParams('mesages-2',range.value)
+      updateUrlParams('mesages2',range.value)
     };
 
     $(".business-pricing-section").ready(function () {
