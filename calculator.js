@@ -96,13 +96,6 @@ $(document).ready(function () {
     }
   });
 
-
-
-
-
-  $(".business-pricing-section").ready(function () {
-    const checkboxes = document.getElementsByClassName("custom-check");
-
   function updateUrlParams(key,value) {
    
     if ('URLSearchParams' in window) {
@@ -113,6 +106,13 @@ $(document).ready(function () {
   }
 
   }
+
+
+
+  $(".business-pricing-section").ready(function () {
+    const checkboxes = document.getElementsByClassName("custom-check");
+
+
 
   checkboxes.forEach(function(checkbox){
     checkbox.addEventListener('change', function(){
