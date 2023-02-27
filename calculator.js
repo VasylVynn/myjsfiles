@@ -8,6 +8,8 @@ let finalPrice2 = 0;
 let finalPrice3 = 0;
 
 $(document).ready(function () {
+  let searchParams = new URLSearchParams(window.location.search);
+console.log(searchParams)
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`)
       .map(function () {
