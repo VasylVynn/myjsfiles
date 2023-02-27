@@ -103,17 +103,11 @@ $(document).ready(function () {
   $(".business-pricing-section").ready(function () {
     const checkboxes = document.getElementsByClassName("custom-check");
 
-  function updateUrlParams() {
-    var selectedValues = [];
-    checkboxes.forEach(function(checkbox) {
-      if (checkbox.checked) {
-        selectedValues.push(checkbox.name);
-      }
-    });
-    var queryString =  selectedValues.join(',');
+  function updateUrlParams(key,value) {
+   
     if ('URLSearchParams' in window) {
       var searchParams = new URLSearchParams(window.location.search)
-      searchParams.set('channels', queryString);
+      searchParams.set(key, value);
       var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
       history.pushState(null, '', newRelativePathQuery);
   }
@@ -122,7 +116,14 @@ $(document).ready(function () {
 
   checkboxes.forEach(function(checkbox){
     checkbox.addEventListener('change', function(){
-      updateUrlParams();
+      var selectedValues = [];
+      checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+          selectedValues.push(checkbox.name);
+        }
+      });
+      var queryString =  selectedValues.join(',');
+      updateUrlParams('channels',queryString);
     })
   })
   });
@@ -130,7 +131,7 @@ $(document).ready(function () {
   $(".business-pricing-section").ready(function () {
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("channels")) {
-      let params = searchParams.get("channels").replace(/%20/g, " ").split(",");
+      let params = searchParams.get("channels").replace(/%20/g, " ").replace(/%2C/g, ",").split(",");
       params.forEach((item) => $(`.custom-check[name='${item}']`).click());
     }
   });
@@ -409,6 +410,17 @@ $(document).ready(function () {
       )}<span> / month</span>`;
     };
 
+    function updateUrlParams(key,value) {
+   
+      if ('URLSearchParams' in window) {
+        var searchParams = new URLSearchParams(window.location.search)
+        searchParams.set(key, value);
+        var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+        history.pushState(null, '', newRelativePathQuery);
+    }
+  
+    }
+
     const HandleInput = () => {
       setValue(range,tooltip,2);
       setRange(range.value);
@@ -418,6 +430,7 @@ $(document).ready(function () {
       $(".estimated-cost-title").text(
         "$" + numberWithCommas(estimatedCost).toString()
       );
+      updateUrlParams('customers',range.value)
     };
 
     range.oninput = () => {
