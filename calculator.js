@@ -95,13 +95,13 @@ $(document).ready(function () {
     }
   });
 
-  const checkboxes = $(".custom-check");
+  const checkboxes = document.getElementsByClassName("custom-check");
 
   function updateUrlParams() {
     var selectedValues = [];
     checkboxes.forEach(function(checkbox) {
       if (checkbox.checked) {
-        selectedValues.push(checkbox.value);
+        selectedValues.push(checkbox.name);
       }
     });
     var queryString = 'checkboxValues=' + selectedValues.join(',');
