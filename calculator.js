@@ -111,10 +111,12 @@ $(document).ready(function () {
       }
     });
     var queryString =  selectedValues.join(',');
-
-    const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set('channels', queryString)
-    window.location.search = searchParams;
+    if ('URLSearchParams' in window) {
+      var searchParams = new URLSearchParams(window.location.search)
+      searchParams.set('channels', queryString);
+      var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+      history.pushState(null, '', newRelativePathQuery);
+  }
 
   }
 
