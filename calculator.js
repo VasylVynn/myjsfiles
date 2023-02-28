@@ -282,7 +282,9 @@ $(document).ready(function () {
 
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("customers")) {
-      range.value = searchParams.get("customers");
+      const customersValue = searchParams.get("customers");
+      setRange(customersValue);
+      range.value = customersValue;
       HandleInput();
     }
   }
@@ -319,10 +321,18 @@ $(document).ready(function () {
     if (!searchParams.has(messagesParam)) {
       return;
     }
-
+    const messagesValue = searchParams.get(messagesParam);
     const range = calcDiv.find("input[type=range]");
 
-    range.val(searchParams.get(messagesParam));
+    if (messagesValue < 330000) {
+      range.attr("step", 8250);
+    } else if (messagesValue >= 330000 && messagesValue < 660000) {
+      range.attr("step", 733.333333);
+    } else {
+      range.attr("step", 6600);
+    }
+
+    range.val(messagesValue);
   };
 
   if ($("div#calculator-2").length) {
