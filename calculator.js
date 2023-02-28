@@ -131,6 +131,7 @@ $(document).ready(function () {
         .replace(/%2C/g, ",")
         .replace(/%27/g, "'")
         .split(",");
+        console.log(params);
       params.forEach((item) => $(`.custom-check[name='${item}']`).click());
     }
   });
@@ -283,7 +284,13 @@ $(document).ready(function () {
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("customers")) {
       const customersValue = searchParams.get("customers");
-      setRange(customersValue);
+      if (customersValue < 33333.33328) {
+        range.attr("step", 833.333332);
+      } else if (customersValue >= 33333.33328 && customersValue < 66666.6666) {
+        range.attr("step", 74.074074);
+      } else {
+        range.attr("step", 66.6666666);
+      }
       range.value = customersValue;
       HandleInput();
     }
