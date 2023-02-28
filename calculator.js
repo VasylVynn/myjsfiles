@@ -107,7 +107,7 @@ $(document).ready(function () {
 
   $(".pricing-list").ready(function () {
     const checkboxes = document.getElementsByClassName("custom-check");
-
+console.log(checkboxes);
     checkboxes.forEach(function (checkbox) {
       checkbox.addEventListener("change", function () {
         var selectedValues = [];
