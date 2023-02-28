@@ -105,7 +105,7 @@ $(document).ready(function () {
     }
   }
 
-  $(".business-pricing-section").ready(function () {
+  $(".pricing-list").ready(function () {
     const checkboxes = document.getElementsByClassName("custom-check");
 
     checkboxes.forEach(function (checkbox) {
