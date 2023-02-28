@@ -131,7 +131,7 @@ $(document).ready(function () {
         .replace(/%2C/g, ",")
         .replace(/%27/g, "'")
         .split(",");
-      params.forEach((item) => $(`.custom-check[value=${item}]`).click());
+      params.forEach((item) => $(`.custom-check[value='${item}']`).click());
     }
   });
 
