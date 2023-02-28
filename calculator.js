@@ -8,7 +8,6 @@ let finalPrice2 = 0;
 let finalPrice3 = 0;
 
 $(document).ready(function () {
-
   const AddSelectedChannels = (group, selectedcontainer) => {
     var selected = $(`.${group}:checked`)
       .map(function () {
@@ -96,48 +95,45 @@ $(document).ready(function () {
     }
   });
 
-  function updateUrlParams(key,value) {
-   
-    if ('URLSearchParams' in window) {
-      var searchParams = new URLSearchParams(window.location.search)
+  function updateUrlParams(key, value) {
+    if ("URLSearchParams" in window) {
+      var searchParams = new URLSearchParams(window.location.search);
       searchParams.set(key, value);
-      var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
-      history.pushState(null, '', newRelativePathQuery);
+      var newRelativePathQuery =
+        window.location.pathname + "?" + searchParams.toString();
+      history.pushState(null, "", newRelativePathQuery);
+    }
   }
-
-  }
-
-
 
   $(".business-pricing-section").ready(function () {
     const checkboxes = document.getElementsByClassName("custom-check");
 
-
-
-  checkboxes.forEach(function(checkbox){
-    checkbox.addEventListener('change', function(){
-      var selectedValues = [];
-      checkboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
-          selectedValues.push(checkbox.name);
-        }
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener("change", function () {
+        var selectedValues = [];
+        checkboxes.forEach(function (checkbox) {
+          if (checkbox.checked) {
+            selectedValues.push(checkbox.name);
+          }
+        });
+        var queryString = selectedValues.join(",");
+        updateUrlParams("channels", queryString);
       });
-      var queryString =  selectedValues.join(',');
-      updateUrlParams('channels',queryString);
-    })
-  })
+    });
   });
 
-  $(".business-pricing-section").ready(function () {
+  $(".pricing-list").ready(function () {
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("channels")) {
-      let params = searchParams.get("channels").replace(/%20/g, " ").replace(/%2C/g, ",").split(",");
+      let params = searchParams
+        .get("channels")
+        .replace(/%20/g, " ")
+        .replace(/%2C/g, ",")
+        .replace(/%27/g, ",")
+        .split(",");
       params.forEach((item) => $(`.custom-check[name='${item}']`).click());
     }
   });
-
-
-  
 
   const barActive = (calcNumber, calcRange) => {
     if (calcRange.value > (calcNumber === "1" ? 33333.3333 : 333333.333)) {
@@ -160,8 +156,7 @@ $(document).ready(function () {
     }
   };
 
-  
-  const setValue = (range,tooltip,calcNumber) => {
+  const setValue = (range, tooltip, calcNumber) => {
     const newValue = Number(
         ((range.value - range.min) * 100) / (range.max - range.min)
       ),
@@ -178,15 +173,13 @@ $(document).ready(function () {
       `calc(${newValue}% + (${newPosition}px))`
     );
   };
-  
 
   if ($("div#calculator-1").length) {
     const range = document.getElementById("range-1"),
       tooltip = document.getElementById("tooltip-1"),
       price = document.getElementById("price-1");
-   
 
-    document.addEventListener("DOMContentLoaded", setValue(range,tooltip,1));
+    document.addEventListener("DOMContentLoaded", setValue(range, tooltip, 1));
 
     let customers = 0;
 
@@ -243,7 +236,7 @@ $(document).ready(function () {
     };
 
     const HandleInput = () => {
-      setValue(range,tooltip,1);
+      setValue(range, tooltip, 1);
       setRange(range.value);
       Calculate();
       barActive("1", range);
@@ -279,32 +272,24 @@ $(document).ready(function () {
 
     range.onmouseup = () => {
       StickToValue();
+      updateUrlParams("customers", range.value);
     };
 
     range.ontouchend = () => {
       StickToValue();
+      updateUrlParams("customers", range.value);
     };
 
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("customers")) {
-      let reqCustomers = parseInt(searchParams.get("customers"));
-      if (reqCustomers > 1000 && reqCustomers < 5000) {
-        range.value = ((reqCustomers - 1000) / 100) * 833.333332;
-      } else if (reqCustomers >= 5000 && reqCustomers < 50000) {
-        range.setAttribute("step", 74.074074);
-        range.value = ((reqCustomers - 5000) / 100) * 74.074074 + 33333.33328;
-      } else {
-        range.setAttribute("step", 66.6666666);
-        range.value = ((reqCustomers - 50000) / 100) * 66.6666666 + 66666.6666;
-      }
-      HandleInput();
+      range.value = HandleInput(searchParams.get("customers"));
     }
   }
 
   const stickToValueMessages = (messages, range) => {
     const isWideScreen = $(window).width() > 700;
     const isInRange = (min, max) => messages >= min && messages <= max;
-  
+
     if (isWideScreen) {
       if (isInRange(49000, 56000)) {
         range.value = 330000;
@@ -319,7 +304,6 @@ $(document).ready(function () {
       }
     }
   };
-  
 
   const setMessagesFromParams = (calcNumber) => {
     const calcDiv = $(`div#calculator-${calcNumber}`);
@@ -336,7 +320,7 @@ $(document).ready(function () {
     }
 
     const range = calcDiv.find("input[type=range]");
-   
+
     range.val(searchParams.get(messagesParam));
   };
 
@@ -345,7 +329,7 @@ $(document).ready(function () {
       tooltip = document.getElementById("tooltip-2"),
       price = document.getElementById("price-2");
 
-    document.addEventListener("DOMContentLoaded", setValue(range,tooltip,2));
+    document.addEventListener("DOMContentLoaded", setValue(range, tooltip, 2));
 
     let messages = 0;
 
@@ -395,10 +379,8 @@ $(document).ready(function () {
       )}<span> / month</span>`;
     };
 
- 
-
     const HandleInput = () => {
-      setValue(range,tooltip,2);
+      setValue(range, tooltip, 2);
       setRange(range.value);
       Calculate();
       barActive("2", range);
@@ -411,19 +393,17 @@ $(document).ready(function () {
     range.oninput = () => {
       HandleInput();
     };
- 
-    range.ontouchend = () => {
-      stickToValueMessages(messages,range);
-      HandleInput();
-      updateUrlParams('mesages1',range.value)
 
+    range.ontouchend = () => {
+      stickToValueMessages(messages, range);
+      HandleInput();
+      updateUrlParams("messages1", range.value);
     };
 
     range.onmouseup = () => {
-      stickToValueMessages(messages,range);
+      stickToValueMessages(messages, range);
       HandleInput();
-      updateUrlParams('messages1',range.value)
-
+      updateUrlParams("messages1", range.value);
     };
 
     $(".business-pricing-section").ready(function () {
@@ -437,7 +417,7 @@ $(document).ready(function () {
       tooltip = document.getElementById("tooltip-3"),
       price = document.getElementById("price-3");
 
-    document.addEventListener("DOMContentLoaded", setValue(range,tooltip,3));
+    document.addEventListener("DOMContentLoaded", setValue(range, tooltip, 3));
 
     let messages = 0;
 
@@ -488,7 +468,7 @@ $(document).ready(function () {
     };
 
     const HandleInput = () => {
-      setValue(range,tooltip,3);
+      setValue(range, tooltip, 3);
       setRange(range.value);
       Calculate();
       barActive("3", range);
@@ -503,15 +483,15 @@ $(document).ready(function () {
     };
 
     range.ontouchend = () => {
-      stickToValueMessages(messages,range);
+      stickToValueMessages(messages, range);
       HandleInput();
-      updateUrlParams('mesages2',range.value)
+      updateUrlParams("messages2", range.value);
     };
 
     range.onmouseup = () => {
-      stickToValueMessages(messages,range);
+      stickToValueMessages(messages, range);
       HandleInput();
-      updateUrlParams('mesages2',range.value)
+      updateUrlParams("messages2", range.value);
     };
 
     $(".business-pricing-section").ready(function () {
