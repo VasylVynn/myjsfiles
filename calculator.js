@@ -129,7 +129,7 @@ $(document).ready(function () {
         .get("channels")
         .replace(/%20/g, " ")
         .replace(/%2C/g, ",")
-        .replace(/%27/g, ",")
+        .replace(/%27/g, "'")
         .split(",");
       params.forEach((item) => $(`.custom-check[name='${item}']`).click());
     }
