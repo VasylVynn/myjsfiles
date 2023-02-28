@@ -125,6 +125,8 @@ $(document).ready(function () {
   $(".pricing-list").ready(function () {
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("channels")) {
+      console.log(searchParams.get("channels"));
+
       let params = searchParams
         .get("channels")
         .replace(/%20/g, " ")
@@ -133,7 +135,7 @@ $(document).ready(function () {
         .replace(/%27/g, "'")
         .split(",");
         console.log(params);
-      params.forEach((item) => $(`.custom-check[name='${item}']`).click());
+      params.forEach((item) => $(`.custom-check[name=${item}]`).click());
     }
   });
 
