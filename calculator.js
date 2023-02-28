@@ -282,7 +282,8 @@ $(document).ready(function () {
 
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("customers")) {
-      range.value = HandleInput(searchParams.get("customers"));
+      range.value = searchParams.get("customers");
+      HandleInput();
     }
   }
 
