@@ -285,11 +285,11 @@ $(document).ready(function () {
     if (searchParams.has("customers")) {
       const customersValue = searchParams.get("customers");
       if (customersValue < 33333.33328) {
-        range.attr("step", 833.333332);
+        $("#range-1").attr("step", 833.333332);
       } else if (customersValue >= 33333.33328 && customersValue < 66666.6666) {
-        range.attr("step", 74.074074);
+        $("#range-1").attr("step", 74.074074);
       } else {
-        range.attr("step", 66.6666666);
+        $("#range-1").attr("step", 66.6666666);
       }
       range.value = customersValue;
       HandleInput();
