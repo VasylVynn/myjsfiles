@@ -129,6 +129,7 @@ $(document).ready(function () {
         .get("channels")
         .replace(/%20/g, " ")
         .replace(/%2C/g, ",")
+        .replace(/"/g, "'")
         .replace(/%27/g, "'")
         .split(",");
         console.log(params);
